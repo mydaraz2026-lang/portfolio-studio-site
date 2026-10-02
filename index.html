@@ -72,18 +72,21 @@ section{padding:72px 0}
 .proof{background:var(--white)}
 .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:30px}
 .proof-card{border:1px solid var(--line);border-radius:8px;padding:28px;background:var(--bg);display:flex;flex-direction:column}
-.browser{border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-bottom:20px;background:var(--white)}
-.browser .bar{background:#eef0f3;padding:7px 12px;font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center}
-.browser .dot{width:8px;height:8px;border-radius:50%;background:#c7ccd3;display:inline-block}
-.browser .bar span.url{margin-left:8px}
-.browser .body{padding:16px;display:flex;justify-content:space-between;gap:10px;text-align:center}
+.person{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.avatar{width:72px;height:72px;border-radius:50%;object-fit:cover;object-position:center top;border:3px solid var(--gold);background:var(--cream);flex:none}
+.who strong{display:block;color:var(--navy);font-size:18px}
+.who span{color:var(--muted);font-size:15px}
+.proof-card blockquote{font-size:17px;color:var(--ink);border-left:3px solid var(--gold);padding-left:16px;margin-bottom:20px;flex:1}
+.preview{display:block;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--white);text-decoration:none;color:inherit;transition:box-shadow .2s,transform .2s}
+.preview:hover{box-shadow:0 8px 24px rgba(19,41,63,.14);transform:translateY(-2px)}
+.preview .thumb{display:block;width:100%;height:170px;object-fit:cover;object-position:center 20%;background:var(--cream)}
+.preview .meta{padding:12px 14px;border-top:1px solid var(--line)}
+.preview .dom{display:block;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.preview .meta b{display:block;color:var(--navy);font-size:15px;line-height:1.35;margin:2px 0}
+.preview .meta small{display:block;color:var(--muted);font-size:13px;line-height:1.4}
+.stats{display:flex;justify-content:space-between;gap:10px;text-align:center;margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
 .stat b{display:block;font-family:Cambria,Georgia,serif;font-size:26px;color:var(--navy)}
 .stat small{color:var(--muted);font-size:12px}
-.browser .site-name{padding:0 16px 14px;font-size:13px;color:var(--muted)}
-.proof-card blockquote{font-size:17px;color:var(--ink);border-left:3px solid var(--gold);padding-left:16px;margin-bottom:18px;flex:1}
-.who strong{display:block;color:var(--navy)}
-.who span{color:var(--muted);font-size:15px}
-.who a{display:inline-block;margin-top:8px;color:var(--navy);font-weight:700;font-size:14px;text-decoration:none;border-bottom:2px solid var(--gold)}
 
 /* Services */
 .services{background:var(--bg)}
@@ -225,30 +228,46 @@ footer{background:var(--navy-dark);color:#9fb0c3;padding:26px 0;font-size:14px;t
     <div class="proof-grid">
 
       <article class="proof-card">
-        <div class="browser" aria-label="Preview of mhchowdhury.netlify.app">
-          <div class="bar"><i class="dot"></i><i class="dot"></i><i class="dot"></i><span class="url">mhchowdhury.netlify.app</span></div>
-          <div class="body">
-            <div class="stat"><b>25+</b><small>Yrs in Sales</small></div>
-            <div class="stat"><b>194%</b><small>10-Yr Growth</small></div>
-            <div class="stat"><b>230+</b><small>Team Led</small></div>
+        <div class="person">
+          <img class="avatar" src="https://mhchowdhury.netlify.app/images/profile-1.jpg" alt="Portrait of Mehdi Hasan Chowdhury" width="72" height="72" loading="lazy">
+          <div class="who">
+            <strong>Mehdi Hasan Chowdhury</strong>
+            <span>Head of Sales, BSRM Steels Ltd.</span>
           </div>
-          <div class="site-name">Live site · Head of Sales, BSRM Steels Ltd.</div>
         </div>
         <blockquote>“Sadman's strategic eye for executive branding and his vision behind Portfolio Studio made the entire process seamless from concept to launch. He doesn't just build web pages—he helps professionals articulate their career journey with clarity and impact.”</blockquote>
-        <div class="who">
-          <strong>Mehdi Hasan Chowdhury</strong>
-          <span>Head of Sales, BSRM Steels Ltd.</span>
-          <a href="https://mhchowdhury.netlify.app" target="_blank" rel="noopener">View live site →</a>
+        <a class="preview" href="https://mhchowdhury.netlify.app" target="_blank" rel="noopener" aria-label="Open Mehdi Hasan Chowdhury's live portfolio website">
+          <img class="thumb" src="https://mhchowdhury.netlify.app/images/profile-3.jpg" alt="Preview of Mehdi Hasan Chowdhury's portfolio website" loading="lazy">
+          <div class="meta">
+            <span class="dom">mhchowdhury.netlify.app</span>
+            <b>Muhammed Mehdi Hasan Chowdhury | Executive Portfolio</b>
+            <small>Senior Sales &amp; Business Development Professional — 25+ years driving distribution, trade marketing &amp; channel growth.</small>
+          </div>
+        </a>
+        <div class="stats">
+          <div class="stat"><b>25+</b><small>Yrs in Sales</small></div>
+          <div class="stat"><b>194%</b><small>10-Yr Growth</small></div>
+          <div class="stat"><b>230+</b><small>Team Led</small></div>
         </div>
       </article>
 
       <article class="proof-card">
-        <blockquote>“Portfolio Studio is doing exceptional work helping leaders and professionals articulate their value proposition through tailored digital portfolios and executive branding assets. If you are looking to elevate your digital footprint with a clean, impactful portfolio, I highly recommend connecting with Shuvo and exploring what Portfolio Studio can build for you.”</blockquote>
-        <div class="who">
-          <strong>S M Atiqur Rahman</strong>
-          <span>Banking Operations and AML/CFT Compliance, UAE</span>
-          <a href="https://sm-atiqurrahman.netlify.app" target="_blank" rel="noopener">View live site →</a>
+        <div class="person">
+          <img class="avatar" src="https://sm-atiqurrahman.netlify.app/assets/img/atiqur-portrait.webp" alt="Portrait of S M Atiqur Rahman" width="72" height="72" loading="lazy">
+          <div class="who">
+            <strong>S M Atiqur Rahman</strong>
+            <span>Banking Operations and AML/CFT Compliance, UAE</span>
+          </div>
         </div>
+        <blockquote>“Portfolio Studio is doing exceptional work helping leaders and professionals articulate their value proposition through tailored digital portfolios and executive branding assets. If you are looking to elevate your digital footprint with a clean, impactful portfolio, I highly recommend connecting with Shuvo and exploring what Portfolio Studio can build for you.”</blockquote>
+        <a class="preview" href="https://sm-atiqurrahman.netlify.app" target="_blank" rel="noopener" aria-label="Open S M Atiqur Rahman's live portfolio website">
+          <img class="thumb" src="https://sm-atiqurrahman.netlify.app/assets/img/atiqur-office.webp" alt="Preview of S M Atiqur Rahman's portfolio website" loading="lazy">
+          <div class="meta">
+            <span class="dom">sm-atiqurrahman.netlify.app</span>
+            <b>S M Atiqur Rahman | Banking Operations and AML/CFT Compliance, UAE</b>
+            <small>14+ years of UAE banking operations and KYC/AML compliance: high-risk onboarding, ICCS clearing, goAML disclosures.</small>
+          </div>
+        </a>
       </article>
 
     </div>
