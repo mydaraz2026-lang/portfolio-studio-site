@@ -107,6 +107,7 @@ section[id]{scroll-margin-top:72px}
 
 /* Credentials */
 .creds{background:var(--green-deep);color:#e6efe9;padding-block:34px}
+.creds-line{font:700 clamp(18px,2.2vw,22px)/1.3 var(--f-display);color:#fff;margin:0 0 22px;max-width:40em}
 .creds-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .creds h3{font:600 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--mint-lt);margin-bottom:8px}
 .creds p{font-size:16px}
@@ -283,6 +284,9 @@ form.f .btn{margin-top:16px;width:100%}
 .status.ok{color:var(--ok);font-weight:700}
 .status.err{color:var(--err);font-weight:700}
 
+.stick{display:none}
+@media(max-width:760px){.stick{display:block;position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--green-deep);padding:10px 16px calc(10px + env(safe-area-inset-bottom));transform:translateY(110%);transition:transform .25s}.stick.on{transform:none}.stick a{display:flex;align-items:center;justify-content:center;min-height:48px;background:#fff;color:var(--green-deep);font-weight:700;text-decoration:none}footer{padding-bottom:84px}}
+@media(prefers-reduced-motion:reduce){.stick{transition:none}}
 footer{background:var(--green-deep);color:#b6cabf;padding:26px var(--pad);font-size:14px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px}
 footer b{color:#fff;font:800 18px/1 var(--f-display)}
 footer a{color:#e8f0ea;text-underline-offset:3px}
@@ -356,14 +360,15 @@ footer a{color:#e8f0ea;text-underline-offset:3px}
   <div class="hero-copy">
     <span class="pill">CVs for graduates and senior professionals</span>
     <h1>Stop applying. Start <span class="mk">getting shortlisted.</span></h1>
-    <p class="lead">Your experience already qualifies you. Let's make sure your CV proves it. I match it to the job's keywords, rewrite it around results, and send you ready-to-send files within 48 hours.</p>
+    <p class="lead">Your experience already qualifies you. Let's make sure your CV proves it. Many strong CVs read like a task list instead of a business case. I match yours to the job's keywords, rewrite it around results, and send you ready-to-send files within 48 hours.</p>
     <ul class="hooks" aria-label="What you get">
+      <li>Free CV audit</li>
       <li>Tailored to every job description</li>
       <li>ATS-tested before delivery</li>
       <li>From ~3,500 BDT</li>
     </ul>
     <div class="actions">
-      <a class="btn btn-solid" href="https://wa.me/8801790653537?text=Hi%20Shuvo%2C%20I%20would%20like%20to%20send%20you%20my%20JD." target="_blank" rel="noopener">Send me your JD</a>
+      <a class="btn btn-solid" href="https://wa.me/8801790653537?text=Hi%20Shuvo%2C%20I%20would%20like%20a%20free%20audit%20of%20my%20current%20CV%20against%20my%20target%20role." target="_blank" rel="noopener">Send my CV for a free audit</a>
       <a class="btn btn-line" href="#pricing">See pricing</a>
     </div>
     <p class="note">Written by a B2B sales leader with 14+ years in the field, including dealer management and SOP building. Your CV and job descriptions stay private.</p>
@@ -390,6 +395,7 @@ footer a{color:#e8f0ea;text-underline-offset:3px}
 </section>
 
 <section class="creds dk" aria-label="Credentials">
+  <p class="creds-line">Built on 14+ years of real commercial leadership, not AI templates or HR buzzwords.</p>
   <div class="creds-grid">
     <div><h3>Experience</h3><p><b>14+ years</b> in B2B sales and business development, including dealer management and SOP building. Daraz, Kansai Nerolac, BSRM</p></div>
     <div><h3>Certified</h3><p><b>Gainsight Certified CSM</b> · HubSpot Sales Hub</p></div>
@@ -461,9 +467,9 @@ footer a{color:#e8f0ea;text-underline-offset:3px}
   <div class="col">
     <span class="tag">The problem</span>
     <h2 style="margin-top:12px">Your CV isn't closing doors.</h2>
-    <div class="item"><h3>Many applications are filtered before a person reads them</h3><p>Applicant tracking systems screen and rank CVs first. If yours doesn't use the job's wording, a recruiter may never see it.</p></div>
-    <div class="item"><h3>Seconds to make an impression</h3><p>Generic CVs blend into the pile. Hiring committees scan fast, so your story has to land immediately.</p></div>
-    <div class="item"><h3>Your experience qualifies you, your CV doesn't show it</h3><p>The gap between your real value and how it is written down costs you interviews.</p></div>
+    <div class="item"><h3>The ATS blind spot</h3><p>Applicant tracking systems screen and rank CVs first. If yours misses the job's wording, a recruiter may never see it.</p></div>
+    <div class="item"><h3>The task trap</h3><p>Listing duties instead of measurable results. Hiring committees scan fast, so your story has to land immediately.</p></div>
+    <div class="item"><h3>One CV for every job</h3><p>The same generic CV sent to different roles blends into the pile. Each job needs its own wording, and the gap costs you interviews.</p></div>
   </div>
   <div class="col sol">
     <span class="tag">The fix</span>
@@ -598,11 +604,13 @@ footer a{color:#e8f0ea;text-underline-offset:3px}
   <div class="sec-head"><h2>Common questions</h2></div>
   <div class="faq-list">
     <details><summary>What is an ATS, and why does it matter?</summary><p>An applicant tracking system (ATS) scans CVs for keywords and structure before a recruiter reads them. I match your CV to each job's wording and test it so it gets through.</p></details>
+    <details><summary>Is the CV audit really free?</summary><p>Yes. Send your current CV and the role you are aiming for. I reply with what is holding it back, at no cost and with no obligation. If you then want me to do the rewrite, I will quote a price that fits your level.</p></details>
     <details><summary>How long does it take?</summary><p>Ready-to-send files are delivered within 48 hours.</p></details>
     <details><summary>What do I need to send?</summary><p>The job description you're targeting and your current CV. If you don't have a CV, a short summary of your roles and achievements is enough to start from scratch. You can send both on WhatsApp.</p></details>
     <details><summary>Is my CV kept confidential?</summary><p>Yes. Your CV and job descriptions are used only to prepare your documents and are not shared. See the privacy note in the contact section.</p></details>
     <details><summary>What is the XYZ formula?</summary><p>A way of writing achievements: what you accomplished (X), how it was measured (Y), and how you did it (Z). It turns duties into measurable impact.</p></details>
     <details><summary>I'm a fresh graduate with little experience. Can you help?</summary><p>Yes. I turn internships, academic projects, volunteering and part-time work into achievements, and match the CV to the job you are applying for. Resume Essentials is a good place to start.</p></details>
+    <details><summary>What if the job description changes?</summary><p>Send me the new one. On Resume Plus, the 30-day window includes 2 tailored CVs for your next 2 applications, and Executive includes unlimited tailored CVs for 30 days. Outside that, I quote a short update.</p></details>
     <details><summary>What does the 30-day window cover?</summary><p>Resume Plus + ATS includes 2 tailored CVs for your next 2 job applications within 30 days. Executive includes unlimited tailored CVs for 30 days.</p></details>
     <details><summary>How do revisions work?</summary><p>Resume Plus + ATS includes 1 revision round, and Executive includes 2.</p></details>
     <details><summary>Are the prices fixed?</summary><p>The prices shown are approximate guides. Message me for a quote tailored to your role and level.</p></details>
@@ -643,6 +651,8 @@ footer a{color:#e8f0ea;text-underline-offset:3px}
   <a href="https://www.linkedin.com/in/sadman-rayan-shuvo-sales-bd" target="_blank" rel="noopener">LinkedIn →</a>
 </footer>
 
+<div class="stick" id="stick"><a href="https://wa.me/8801790653537?text=Hi%20Shuvo%2C%20I%20would%20like%20a%20free%20audit%20of%20my%20current%20CV%20against%20my%20target%20role." target="_blank" rel="noopener">Free CV audit on WhatsApp</a></div>
+
 <script>
 /* If a client portrait cannot load, show initials instead. */
 function avFallback(img){
@@ -656,6 +666,9 @@ function avFallback(img){
   img.replaceWith(s);
 }
 document.querySelectorAll('img.av').forEach(function(i){ if(i.complete && i.naturalWidth === 0) avFallback(i); });
+var st=document.getElementById('stick');
+function chkStick(){ if(st) st.classList.toggle('on', window.scrollY>700); }
+window.addEventListener('scroll',chkStick,{passive:true}); chkStick();
 var mb=document.getElementById('menuBtn'), np=document.getElementById('navPanel');
 function setMenu(open){ np.hidden=!open; mb.setAttribute('aria-expanded',open?'true':'false'); mb.setAttribute('aria-label',open?'Close menu':'Open menu'); }
 mb.addEventListener('click',function(){ setMenu(np.hidden); });
