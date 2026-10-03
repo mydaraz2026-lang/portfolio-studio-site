@@ -272,13 +272,21 @@ section[id]{scroll-margin-top:72px}
 .faq-list{max-width:820px;display:grid;gap:34px}
 .faq-group{display:grid;gap:10px}
 .faq-group h3{font:600 12px/1 var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--green-deep);margin:0 0 4px}
-.faq details{background:var(--paper);border:1px solid var(--rule)}
-.faq summary{cursor:pointer;min-height:56px;padding:14px 20px;font-weight:700;color:var(--green-deep);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--green);font-size:26px;line-height:1;flex:none}
-.faq details[open] summary::after{content:"–"}
-.faq details[open] summary{border-bottom:1px solid var(--rule)}
-.faq details p{padding:14px 20px 18px;color:var(--muted)}
+.faq-all{max-width:820px;border:1px solid var(--green-deep);background:var(--paper)}
+.faq-all>summary{cursor:pointer;min-height:64px;padding:16px 20px;font-weight:700;font-size:18px;background:var(--green-deep);color:#fff;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-all>summary::-webkit-details-marker{display:none}
+@media (max-width:560px){.faq-all>summary small{display:none}}
+.faq-all>summary small{font:600 12px/1 var(--f-mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mint-lt);margin-left:10px;font-weight:600}
+.faq-all>summary::after{content:"+";color:var(--mint-lt);font-size:28px;line-height:1;flex:none}
+.faq-all[open]>summary::after{content:"–"}
+.faq-all>.faq-list{padding:26px 20px 24px;max-width:none}
+.faq-list details{background:var(--paper);border:1px solid var(--rule)}
+.faq-list summary{cursor:pointer;min-height:56px;padding:14px 20px;font-weight:700;color:var(--green-deep);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:14px}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";color:var(--green);font-size:26px;line-height:1;flex:none}
+.faq-list details[open]>summary::after{content:"–"}
+.faq-list details[open]>summary{border-bottom:1px solid var(--rule)}
+.faq-list details p{padding:14px 20px 18px;color:var(--muted)}
 
 /* Contact */
 .contact{background:var(--paper);border-top:1px solid var(--rule)}
@@ -626,35 +634,38 @@ footer a{color:#e8f0ea;text-underline-offset:3px}
 
 <section class="faq" id="faq">
   <div class="sec-head"><h2>Common questions</h2></div>
+  <details class="faq-all" id="faq-all"><summary><span>Frequently asked questions<small>15 questions</small></span></summary>
   <div class="faq-list">
     <div class="faq-group" role="group" aria-label="Getting started">
       <h3>Getting started</h3>
-      <details><summary>Is the CV audit really free?</summary><p>Yes. Send me your CV and your target position. I reply with what is holding it back, at no cost and with no obligation. If you then want me to do the rewrite, I will quote a price that fits your level.</p></details>
-      <details><summary>How do I get started?</summary><p>Send me your CV on WhatsApp, or use the form in the contact section. I'll reply with next steps.</p></details>
-      <details><summary>What do I need to send?</summary><p>The job description you're targeting and your current CV. If you don't have a CV, a short summary of your roles and achievements is enough to start from scratch. You can send both on WhatsApp.</p></details>
-      <details><summary>I'm a fresh graduate with little experience. Can you help?</summary><p>Yes. I turn internships, academic projects, volunteering and part-time work into achievements, and match the CV to the job you are applying for. Resume Essentials is a good place to start.</p></details>
+      <details name="faq-q"><summary>Is the CV audit really free?</summary><p>Yes. Send me your CV and your target position. I reply with what is holding it back, at no cost and with no obligation. If you then want me to do the rewrite, I will quote a price that fits your level.</p></details>
+      <details name="faq-q"><summary>How do I get started?</summary><p>Send me your CV on WhatsApp, or use the form in the contact section. I'll reply with next steps.</p></details>
+      <details name="faq-q"><summary>What do I need to send?</summary><p>The job description you're targeting and your current CV. If you don't have a CV, a short summary of your roles and achievements is enough to start from scratch. You can send both on WhatsApp.</p></details>
+      <details name="faq-q"><summary>I'm a fresh graduate with little experience. Can you help?</summary><p>Yes. I turn internships, academic projects, volunteering and part-time work into achievements, and match the CV to the job you are applying for. Resume Essentials is a good place to start.</p></details>
     </div>
     <div class="faq-group" role="group" aria-label="Pricing and payment">
       <h3>Pricing and payment</h3>
-      <details><summary>Are the prices fixed?</summary><p>The prices shown are approximate guides. Message me for a quote tailored to your role and level.</p></details>
-      <details><summary>How do I pay?</summary><p>I accept bKash, Nagad and Upay, all on +880 1790 653537. Advance payment is required before I start the work. The CV audit is free and needs no payment.</p></details>
-      <details><summary>How much does a Portfolio Website cost?</summary><p>Scope varies from project to project, so portfolio websites are quoted individually. Message me with your role and what you need.</p></details>
-      <details><summary>What does the 30-day window cover?</summary><p>Resume Plus + ATS includes 2 tailored CVs for your next 2 job applications within 30 days. Executive includes unlimited tailored CVs for 30 days.</p></details>
+      <details name="faq-q"><summary>Are the prices fixed?</summary><p>The prices shown are approximate guides. Message me for a quote tailored to your role and level.</p></details>
+      <details name="faq-q"><summary>How do I pay?</summary><p>I accept bKash, Nagad and Upay, all on +880 1790 653537. Advance payment is required before I start the work. The CV audit is free and needs no payment.</p></details>
+      <details name="faq-q"><summary>How much does a Portfolio Website cost?</summary><p>Scope varies from project to project, so portfolio websites are quoted individually. Message me with your role and what you need.</p></details>
+      <details name="faq-q"><summary>What does the 30-day window cover?</summary><p>Resume Plus + ATS includes 2 tailored CVs for your next 2 job applications within 30 days. Executive includes unlimited tailored CVs for 30 days.</p></details>
     </div>
     <div class="faq-group" role="group" aria-label="Delivery and revisions">
       <h3>Delivery and revisions</h3>
-      <details><summary>How long does it take?</summary><p>Ready-to-send files are delivered within 48 hours, once your advance payment is confirmed.</p></details>
-      <details><summary>What files do I receive?</summary><p>Both an editable Word (.docx) file and a PDF. The Word file lets you swap keywords yourself for future applications.</p></details>
-      <details><summary>How do revisions work?</summary><p>Resume Plus + ATS includes 1 revision round, and Executive includes 2.</p></details>
-      <details><summary>What if the job description changes?</summary><p>Send me the new one. On Resume Plus, the 30-day window includes 2 tailored CVs for your next 2 applications, and Executive includes unlimited tailored CVs for 30 days. Outside that, I quote a short update.</p></details>
+      <details name="faq-q"><summary>How long does it take?</summary><p>Ready-to-send files are delivered within 48 hours, once your advance payment is confirmed.</p></details>
+      <details name="faq-q"><summary>What files do I receive?</summary><p>Both an editable Word (.docx) file and a PDF. The Word file lets you swap keywords yourself for future applications.</p></details>
+      <details name="faq-q"><summary>How do revisions work?</summary><p>Resume Plus + ATS includes 1 revision round, and Executive includes 2.</p></details>
+      <details name="faq-q"><summary>What if the job description changes?</summary><p>Send me the new one. On Resume Plus, the 30-day window includes 2 tailored CVs for your next 2 applications, and Executive includes unlimited tailored CVs for 30 days. Outside that, I quote a short update.</p></details>
     </div>
     <div class="faq-group" role="group" aria-label="Privacy and basics">
       <h3>Privacy and basics</h3>
-      <details><summary>Is my CV kept confidential?</summary><p>Yes. Your CV and job descriptions are used only to prepare your documents and are not shared. See the privacy note in the contact section.</p></details>
-      <details><summary>What is an ATS, and why does it matter?</summary><p>An applicant tracking system (ATS) scans CVs for keywords and structure before a recruiter reads them. I match your CV to each job's wording and test it so it gets through.</p></details>
-      <details><summary>What is the XYZ formula?</summary><p>A way of writing achievements: what you accomplished (X), how it was measured (Y), and how you did it (Z). It turns duties into measurable impact.</p></details>
+      <details name="faq-q"><summary>Is my CV kept confidential?</summary><p>Yes. Your CV and job descriptions are used only to prepare your documents and are not shared. See the privacy note in the contact section.</p></details>
+      <details name="faq-q"><summary>What is an ATS, and why does it matter?</summary><p>An applicant tracking system (ATS) scans CVs for keywords and structure before a recruiter reads them. I match your CV to each job's wording and test it so it gets through.</p></details>
+      <details name="faq-q"><summary>What is the XYZ formula?</summary><p>A way of writing achievements: what you accomplished (X), how it was measured (Y), and how you did it (Z). It turns duties into measurable impact.</p></details>
     </div>
   </div>
+  </details>
+
 </section>
 
 <section class="contact" id="contact">
@@ -747,6 +758,19 @@ form.addEventListener('submit', function(e){
     })
     .then(function(){ btn.disabled = false; btn.textContent = 'Send message'; });
 });
+
+/* FAQ: one dropdown; opens from any #faq link; one question open at a time. */
+(function(){
+  var all=document.getElementById('faq-all'); if(!all) return;
+  function openFaq(){ all.open=true; }
+  document.querySelectorAll('a[href="#faq"]').forEach(function(a){ a.addEventListener('click', openFaq); });
+  if(location.hash==='#faq') openFaq();
+  window.addEventListener('hashchange', function(){ if(location.hash==='#faq') openFaq(); });
+  var qs=all.querySelectorAll('details[name="faq-q"]');
+  qs.forEach(function(d){ d.addEventListener('toggle', function(){
+    if(d.open) qs.forEach(function(o){ if(o!==d) o.open=false; });
+  }); });
+})();
 </script>
 </body>
 </html>
