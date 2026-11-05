@@ -1,0 +1,46 @@
+---
+const base = [1, 2, 3, 4];
+const fin = [1, 2];
+---
+<section class="sec" id="cv-to-site"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">Before and after</span><h2>From a 4-page CV to a <em>live site.</em></h2><p>Muhammed Mehdi Hasan Chowdhury's career filled four pages, with the strongest results buried in long paragraphs. We kept the career, tightened it to a two-page CV, and built his live site from it.</p></div>
+  <div class="cvx">
+    <div class="cvx-col">
+      <div class="cvx-label"><span>Base CV</span><b>4 pages</b></div>
+      <div class="cvx-pages p4">
+        {base.map((n) => (
+          <button type="button" class="cvx-pg" data-full={`/cv/base-${n}.webp`} data-alt={`Base CV, page ${n} of 4`} aria-label={`Enlarge base CV, page ${n} of 4`}><img src={`/cv/base-${n}.webp`} alt={`Base CV, page ${n} of 4`} width="900" height="1165" loading="lazy" decoding="async" /><span>{n}</span></button>
+        ))}
+      </div>
+    </div>
+    <div class="cvx-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h16M14 6l6 6-6 6"/></svg></div>
+    <div class="cvx-col">
+      <div class="cvx-label"><span>Final CV</span><b>2 pages</b></div>
+      <div class="cvx-pages p2">
+        {fin.map((n) => (
+          <button type="button" class="cvx-pg" data-full={`/cv/final-${n}.webp`} data-alt={`Final CV, page ${n} of 2`} aria-label={`Enlarge final CV, page ${n} of 2`}><img src={`/cv/final-${n}.webp`} alt={`Final CV, page ${n} of 2`} width="900" height="1165" loading="lazy" decoding="async" /><span>{n}</span></button>
+        ))}
+      </div>
+    </div>
+  </div>
+  <p class="cvx-note">Tap a page to enlarge. Personal details are hidden.</p>
+
+  <div class="cvx-clip">
+    <div class="cvx-label"><span>The live site</span><b>mhchowdhury.netlify.app</b></div>
+    <video controls muted playsinline preload="metadata" poster="/video/mehdi-site-poster.webp" width="950" height="420" aria-label="Screen recording scrolling through Mehdi Hasan Chowdhury's live executive portfolio website">
+      <source src="/video/mehdi-site.mp4" type="video/mp4" />
+    </video>
+  </div>
+  <dialog class="cvx-box" id="cvx-box" aria-label="Enlarged CV page"><button type="button" class="cvx-close" aria-label="Close">Close</button><img alt="" /></dialog>
+</div></section>
+<script>
+  const box = document.getElementById('cvx-box') as HTMLDialogElement | null;
+  if (box) {
+    const img = box.querySelector('img')!;
+    document.querySelectorAll<HTMLButtonElement>('.cvx-pg').forEach((b) => b.addEventListener('click', () => {
+      img.src = b.dataset.full || ''; img.alt = b.dataset.alt || ''; box.showModal();
+    }));
+    box.querySelector('.cvx-close')?.addEventListener('click', () => box.close());
+    box.addEventListener('click', (e) => { if (e.target === box) box.close(); });
+  }
+</script>
