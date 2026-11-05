@@ -7,6 +7,8 @@ import { sites } from '../data/site';
     <div class="px-title"><span class="eyebrow">Live samples</span><h2>Profiles already <em>live.</em></h2></div>
     <div class="px-ghost" data-k="ghost" aria-hidden="true">PROFILES</div>
     <div class="px-glow" data-k="glow" aria-hidden="true"></div>
+    <div class="px-item px-laptop" data-k="laptop" aria-hidden="true"><div class="scr"><div class="nm">Your Name<small>Head of Operations · Dhaka</small></div><div class="mt"><div><b>12+</b><span>Years</span></div><div><b>৳40Cr</b><span>P&amp;L owned</span></div><div><b>180</b><span>Team</span></div></div><div class="ln"><i style="width:88%"></i><i style="width:70%"></i><i style="width:80%"></i></div></div></div>
+    <div class="px-item px-phone" data-k="phone" aria-hidden="true"><div class="scr"><div class="av" style="background:var(--gold)"></div><div class="nm" style="font:800 18px var(--display)">Your Name</div><div class="mt" style="grid-template-columns:1fr 1fr"><div><b style="font-size:18px">12+</b><span>Years</span></div><div><b style="font-size:18px">180</b><span>Team</span></div></div><div class="ln"><i style="width:90%"></i><i style="width:70%"></i></div><div class="btn"></div></div></div>
     {sites.map((site, i) => (
       <a class="px-item px-card" data-k={`c${i}`} href={site.url} target="_blank" rel="noopener" aria-label={`Open ${site.name}'s live site`} style="text-decoration:none"><div class="hd"><div class="who">{site.name}</div><span class="live">Live</span></div><img class="shot" src={site.image} alt={`Screenshot of ${site.name}'s portfolio site`} width="960" height="480" loading="lazy" decoding="async" /><div class="url">{site.host}</div></a>
     ))}
