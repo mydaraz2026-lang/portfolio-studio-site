@@ -1,0 +1,53 @@
+---
+import { buildSteps, buildPhases } from '../data/site';
+---
+<section class="sec" id="build"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">A real transformation</span><h2>From a 4-page CV to a <em>live site.</em></h2><p>Follow Muhammed Mehdi Hasan Chowdhury's CV as it becomes his executive site. Drag the slider from Day 0 to Day 7, or press play.</p></div>
+  <div class="bs">
+    <div class="bs-stage">
+      <div class="bs-frame" id="bs" data-d="0" data-steps={JSON.stringify(buildSteps)}>
+        <div class="bs-bar"><span class="bs-dots"><i></i><i></i><i></i></span><span class="bs-url">mhchowdhury.netlify.app</span><span class="bs-flag bs-rev">In review</span><span class="bs-flag bs-livef">Live</span></div>
+        <div class="bs-body">
+          <div class="bs-cv" aria-hidden="true">
+            <span class="cvpg">Base CV · 4 pages</span>
+            <div class="cvh">Muhammed Mehdi Hasan Chowdhury</div>
+            <div class="cvs">Career Summary:</div>
+            <p class="cvp">A sales and business development professional with over 23 years of proven experience across top-tier organizations in Bangladesh, including BSRM Group, Banglalink, Evergreen, Citycell, and GMG Airlines. Currently serving as the Head of Sales at BSRM, where I have driven sustainable business growth, led cross-functional initiatives&hellip;</p>
+            <div class="cvs">Major Accomplishments (page 2):</div>
+            <div class="cvk"><span>Led a 400% increase in international sales within one year</span><em>Key result</em></div>
+            <p class="cvp">Doubled regional sales performance in just six months (from 62% to 120%) in the Noakhali region by converting competitor-aligned dealers&hellip;</p>
+            <div class="cvk"><span>Converted 36% of the dealer base into fully loyal partners</span><em>Key result</em></div>
+            <div class="cvk"><span>Recovered 80% of long-outstanding dues from corporate clients within a year</span><em>Key result</em></div>
+          </div>
+          <div class="bs-site" aria-hidden="true">
+            <div class="bs-nm"><b>Muhammed Mehdi Hasan Chowdhury</b><span>Head of Sales · BSRM Steels Ltd.</span><span class="sub2">Distribution · Trade marketing · Channel growth</span></div>
+            <div class="bs-mets"><div><b>25+</b><span>Years of experience</span></div><div><b>194%</b><span>Sales growth, 10 years</span></div><div><b>400%</b><span>International growth, 1 year</span></div><div><b>230</b><span>Team led at Banglalink</span></div></div>
+            <div class="bs-tl"><div class="t"><i></i><span>BSRM Steels · 2016–Now</span></div><div class="t"><i></i><span>Banglalink · 2004–2016</span></div><div class="t"><i></i><span>Early career · 2002–2004</span></div></div>
+            <div class="bs-btns"><span class="g">Download CV</span><span>LinkedIn</span><span>WhatsApp</span></div>
+            <div class="bs-phone"><b>MH Chowdhury</b><div class="m"><i></i><i></i></div><div class="l"><i></i><i></i></div><div class="p"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bs-info" aria-live="polite">
+      <span class="bs-daynum" id="bsDay">Day 0</span>
+      <h3 id="bsTitle">Free CV audit</h3>
+      <p id="bsText">We review your CV and mark the achievements that carry the most weight.</p>
+      <ol class="bs-steps" id="bsSteps">
+        {buildPhases.map((p) => <li data-from={p.from} data-to={p.to}>{p.name}</li>)}
+      </ol>
+    </div>
+  </div>
+  <div class="bs-ctrl">
+    <button type="button" class="bs-play" id="bsPlay" aria-label="Play the 7-day build">Play</button>
+    <div class="bs-track">
+      <input type="range" id="bsRange" min="0" max="7" step="1" value="0" aria-label="Day of the build" aria-valuetext="Day 0: Free CV audit">
+      <div class="bs-ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
+    </div>
+  </div>
+  <p class="muted" style="margin-top:14px;font:400 12px/1.5 var(--mono)">Facts are taken from his base and final CVs. Personal details such as address and ID number are never shown.</p>
+</div></section>
+
+<script>
+  import '../scripts/scrubber.js';
+</script>

@@ -1,0 +1,28 @@
+---
+import { sites } from '../data/site';
+---
+<span id="samples" style="display:block;position:relative;top:-8px"></span>
+<div class="px" id="px">
+  <div class="px-stage" id="stage">
+    <div class="px-title"><span class="eyebrow">Live samples</span><h2>Profiles already <em>live.</em></h2></div>
+    <div class="px-ghost" data-k="ghost" aria-hidden="true">PROFILES</div>
+    <div class="px-glow" data-k="glow" aria-hidden="true"></div>
+    <div class="px-item px-laptop" data-k="laptop" aria-hidden="true"><div class="scr"><div class="nm">Your Name<small>Head of Operations · Dhaka</small></div><div class="mt"><div><b>12+</b><span>Years</span></div><div><b>৳40Cr</b><span>P&amp;L owned</span></div><div><b>180</b><span>Team</span></div></div><div class="ln"><i style="width:88%"></i><i style="width:70%"></i><i style="width:80%"></i></div></div></div>
+    {sites.map((site, i) => (
+      <a class="px-item px-card" data-k={`c${i}`} href={site.url} target="_blank" rel="noopener" style="text-decoration:none"><div class="hd"><div class="av"></div><span class="live">Live</span></div><div><div class="who">{site.name}</div><div class="url">{site.host}</div></div><div class="tl3"><i></i><i></i><i></i></div><div class="ln"><i style="width:90%"></i><i style="width:70%"></i></div></a>
+    ))}
+    <div class="px-item px-phone" data-k="phone" aria-hidden="true"><div class="scr"><div class="av" style="background:var(--gold)"></div><div class="nm" style="font:800 18px var(--display)">Your Name</div><div class="mt" style="grid-template-columns:1fr 1fr"><div><b style="font-size:18px">12+</b><span>Years</span></div><div><b style="font-size:18px">180</b><span>Team</span></div></div><div class="ln"><i style="width:90%"></i><i style="width:70%"></i></div><div class="btn"></div></div></div>
+    <div class="px-item px-chip" data-k="chip" aria-hidden="true">Live in 7 days</div>
+    <div class="px-scroll">Scroll</div>
+    <div class="px-bar" aria-hidden="true"><i id="bar"></i></div>
+  </div>
+</div>
+<div class="wrap samples-links">
+  {sites.map((site) => (
+    <a class="cta cta-ghost cta-sm" href={site.url} target="_blank" rel="noopener">Open {site.name} ↗</a>
+  ))}
+</div>
+
+<script>
+  import '../scripts/parallax.js';
+</script>
