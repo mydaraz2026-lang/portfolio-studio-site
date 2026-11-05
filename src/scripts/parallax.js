@@ -13,18 +13,18 @@
     var r = px.getBoundingClientRect(), total = r.height - stage.offsetHeight;
     var p = total > 0 ? clamp(-(r.top - 68) / total, 0, 1) : 0;
     if (Math.abs(p - cp) < 0.0005) return; cp = p;
-    var w = stage.clientWidth, sc = clamp(w / 1000, 0.42, 1), e = ease(p), dy = function (speed) { return (0.5 - p) * speed * 240; };
+    var w = stage.clientWidth, e = ease(p), dy = function (speed) { return (0.5 - p) * speed * 240; };
     el.ghost.style.transform = 'translate3d(' + (-50 + (0.5 - p) * 30) + '%,calc(-50% + ' + dy(0.25) + 'px),0)';
     el.glow.style.transform = 'translate3d(0,' + dy(0.3) + 'px,-140px) scale(' + (0.8 + p * 0.5) + ')';
-    el.laptop.style.transform = 'translate3d(0,' + dy(0.55) + 'px,0) rotateX(' + (14 - 14 * e) + 'deg) scale(' + sc + ')';
-    var spread = Math.min(300, w * 0.24), fan = [-1, 0, 1];
+    var narrow = w < 700, cs = narrow ? clamp(w / 400, 0.6, 0.88) : clamp(w / 1150, 0.7, 1.05), gapX = Math.min(w * 0.33, 430), fan = [-1, 0, 1];
     ['c0', 'c1', 'c2'].forEach(function (k, i) {
       var f = fan[i], mid = i === 1;
-      el[k].style.transform = 'translate3d(' + (f * spread * e * 1.15) + 'px,' + (dy(0.9) + (mid ? 40 : 70) * (1 - e) + (mid ? 0 : 30) * e + 40 * e) + 'px,' + (mid ? 120 : 60) * e + 'px) rotate(' + (f * 9 * e) + 'deg) scale(' + sc * (0.82 + 0.18 * e) + ')';
+      var x = narrow ? 0 : f * gapX * e;
+      var y = dy(0.6) + 50 * (1 - e) + (narrow ? 60 * e + f * 138 * cs * e : (mid ? -14 : 8) * e);
+      el[k].style.transform = 'translate3d(' + x + 'px,' + y + 'px,' + (mid ? 80 : 30) * e + 'px) rotate(' + (narrow ? 0 : f * 4 * e) + 'deg) scale(' + cs * (0.86 + 0.14 * e) + ')';
       el[k].style.opacity = String(clamp(0.2 + p * 2.2, 0, 1));
     });
-    el.phone.style.transform = 'translate3d(' + (sc * 270 * (1 - 0.35 * e)) + 'px,' + (dy(1.25) + 30) + 'px,30px) scale(' + sc + ')';
-    el.chip.style.transform = 'translate3d(' + (-sc * 250) + 'px,' + (dy(1.5) - 30 * sc) + 'px,220px) scale(' + sc + ')';
+    el.chip.style.transform = 'translate3d(0,' + (dy(0.4) + 215 * cs) + 'px,200px) scale(' + clamp(w / 900, 0.8, 1) + ')';
     bar.style.width = (p * 100) + '%';
     px.classList.add('moving'); clearTimeout(moveTimer); moveTimer = setTimeout(function () { if (p < 0.02) px.classList.remove('moving'); }, 400);
   }

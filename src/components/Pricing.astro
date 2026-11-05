@@ -5,7 +5,7 @@ import { plans } from '../data/site';
   <div class="sec-head"><span class="eyebrow">Pricing</span><h2>Clear pricing for both services.</h2></div>
   <div class="plans">
     {plans.map((p) => (
-      <div class={p.featured ? 'plan feat' : 'plan'}><span class="lbl">{p.label}</span><div class="price">{p.price}</div><p>{p.note}</p></div>
+      <div class={p.featured ? 'plan feat' : 'plan'}><span class="lbl">{p.label}</span><div class="price">{p.price}</div><p>{p.note}</p><a class={p.featured ? 'cta cta-ink' : 'cta cta-ghost'} href={p.href} target="_blank" rel="noopener">{p.cta}</a></div>
     ))}
   </div>
 </div></section>

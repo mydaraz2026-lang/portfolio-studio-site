@@ -1,3 +1,5 @@
+export const wa = (msg: string) => `https://wa.me/8801790653537?text=${encodeURIComponent(msg)}`;
+
 export const contact = {
   whatsappUrl: 'https://wa.me/8801790653537',
   whatsappLabel: 'WhatsApp +880 1790-653537',
@@ -20,9 +22,9 @@ export const getItems = [
 
 const terms = '5 to 7 working days. Free CV audit first. Advance payment via bKash, Nagad or Upay.';
 export const plans = [
-  { label: 'Website \u00b7 Bangladesh', price: 'BDT 20,000 \u2013 25,000', note: terms, featured: true },
-  { label: 'Website \u00b7 International', price: '$450 \u2013 $600 USD', note: terms, featured: false },
-  { label: 'Media & Guest Profile', price: 'Quoted', note: 'Positioning, headline numbers, interview angles and a booking page, built for podcasts, panels and keynotes. Priced to your brief.', featured: false },
+  { label: 'Website \u00b7 Bangladesh', price: 'BDT 20,000 \u2013 25,000', note: terms, featured: true, cta: 'Start with a free CV audit', href: wa('Hi Shuvo, I would like a portfolio website. Here is my CV and LinkedIn profile.') },
+  { label: 'Website \u00b7 International', price: '$450 \u2013 $600 USD', note: terms, featured: false, cta: 'Start with a free CV audit', href: wa('Hi Shuvo, I would like a portfolio website. Here is my CV and LinkedIn profile.') },
+  { label: 'Media & Guest Profile', price: 'Quoted', note: 'Positioning, headline numbers, interview angles and a booking page, built for podcasts, panels and keynotes. Priced to your brief.', featured: false, cta: 'Request a quote', href: wa('Hi Shuvo, I would like a quote for a media and guest profile.') },
 ];
 
 export const faq = [
