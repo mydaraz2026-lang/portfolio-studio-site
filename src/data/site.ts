@@ -38,45 +38,31 @@ export const faq = [
   ['Will it work on a phone?', 'Yes. Each profile is built to load fast and read well on a phone.'],
 ];
 
-// Case study shown in the 7-day build scrubber: [step name, panel text] for Day 0 to Day 7.
-export const buildSteps = [
-  [
-    "Free CV audit",
-    "We start with his 4-page base CV: 23 years of experience, with the strongest results buried in long paragraphs."
-  ],
-  [
-    "Story and metrics",
-    "We pick the results that prove the story: 400% international growth in one year, 36% loyal dealers, 80% of overdue corporate dues recovered."
-  ],
-  [
-    "Story and metrics",
-    "The headline and key proof points are chosen, and the career is shaped into a timeline."
-  ],
-  [
-    "Design and build",
-    "The design takes shape, built for phones first."
-  ],
-  [
-    "Design and build",
-    "The numbers and timeline are placed: 25+ years, 194% sales growth, 400% international growth in a year, a 230-member team."
-  ],
-  [
-    "Design and build",
-    "His PDF CV and contact links are added. The CV itself is tightened from 4 pages to a clean 2-page final version."
-  ],
-  [
-    "Review and launch",
-    "He reviews the site and we refine it."
-  ],
-  [
-    "Review and launch",
-    "mhchowdhury.netlify.app goes live."
-  ]
-];
-
-export const buildPhases = [
-  { name: 'Free CV audit', from: 0, to: 0 },
-  { name: 'Story and metrics', from: 1, to: 2 },
-  { name: 'Design and build', from: 3, to: 5 },
-  { name: 'Review and launch', from: 6, to: 7 },
+// Case study shown in the 7-day journey: one entry per day, Day 0 to Day 7.
+// short = rail label, phase = group name, got = what the client has by the end of that day.
+export const buildDays = [
+  { short: 'Audit', phase: 'Free CV audit', title: 'Free CV audit',
+    text: 'We start with his 4-page base CV: 23 years of experience, with the strongest results buried in long paragraphs.',
+    got: ['4-page base CV reviewed', 'Strongest results marked'] },
+  { short: 'Story', phase: 'Story and metrics', title: 'Story and metrics',
+    text: 'We pick the results that prove the story: 400% international growth in one year, 36% loyal dealers, 80% of overdue corporate dues recovered.',
+    got: ['400% international growth', '36% loyal dealers', '80% of overdue dues recovered'] },
+  { short: 'Headline', phase: 'Story and metrics', title: 'Headline and timeline',
+    text: 'The headline and key proof points are chosen, and the career is shaped into a timeline.',
+    got: ['Headline chosen', 'Career timeline shaped'] },
+  { short: 'Design', phase: 'Design and build', title: 'Design for phones first',
+    text: 'The design takes shape, built for phones first.',
+    got: ['Phone-first design', 'Site build started'] },
+  { short: 'Numbers', phase: 'Design and build', title: 'Numbers and timeline placed',
+    text: 'The numbers and timeline are placed: 25+ years, 194% sales growth, 400% international growth in a year, a 230-member team.',
+    got: ['25+ years', '194% sales growth', '230-member team'] },
+  { short: 'CV + links', phase: 'Design and build', title: 'CV and contact links',
+    text: 'His PDF CV and contact links are added. The CV itself is tightened from 4 pages to a clean 2-page final version.',
+    got: ['PDF CV added', 'Contact links added', 'Final CV: 4 pages to 2'] },
+  { short: 'Review', phase: 'Review and launch', title: 'Private review',
+    text: 'He reviews the site and we refine it.',
+    got: ['Private preview shared', 'Refinements made'] },
+  { short: 'Live', phase: 'Review and launch', title: 'Live',
+    text: 'mhchowdhury.netlify.app goes live.',
+    got: ['Live on mhchowdhury.netlify.app', 'Link ready to share'] },
 ];

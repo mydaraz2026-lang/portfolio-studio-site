@@ -1,11 +1,17 @@
 ---
-import { buildSteps, buildPhases } from '../data/site';
+import { buildDays } from '../data/site';
 ---
 <section class="sec" id="build"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Seven days</span><h2>Watch it build, <em>day by day.</em></h2><p>Follow Muhammed Mehdi Hasan Chowdhury's 4-page CV as it becomes a 2-page CV and a live executive site. Drag the slider from Day 0 to Day 7, or press play.</p></div>
+  <div class="sec-head"><span class="eyebrow">Seven days</span><h2>Watch it build, <em>day by day.</em></h2><p>Follow Muhammed Mehdi Hasan Chowdhury's 4-page CV as it becomes a 2-page CV and a live executive site. Tap any day, or press play and watch the seven days run.</p></div>
+  <div class="bs-rail" id="bsRail" aria-label="The seven days">
+    <div class="bs-line" aria-hidden="true"><i id="bsFill"></i></div>
+    <ol>
+      {buildDays.map((d, i) => <li><button type="button" data-d={i} aria-label={`Day ${i}: ${d.title}`}><span class="dot" aria-hidden="true"></span><span class="n">Day {i}</span><span class="lb">{d.short}</span></button></li>)}
+    </ol>
+  </div>
   <div class="bs">
     <div class="bs-stage">
-      <div class="bs-frame" id="bs" data-d="0" data-steps={JSON.stringify(buildSteps)}>
+      <div class="bs-frame" id="bs" data-d="0" data-days={JSON.stringify(buildDays)}>
         <div class="bs-bar"><span class="bs-dots"><i></i><i></i><i></i></span><span class="bs-url">mhchowdhury.netlify.app</span><span class="bs-flag bs-rev">In review</span><span class="bs-flag bs-livef">Live</span></div>
         <div class="bs-body">
           <div class="bs-cv">
@@ -25,20 +31,19 @@ import { buildSteps, buildPhases } from '../data/site';
       </div>
     </div>
     <div class="bs-info" aria-live="polite">
-      <span class="bs-daynum" id="bsDay">Day 0</span>
-      <h3 id="bsTitle">Free CV audit</h3>
-      <p id="bsText">We review your CV and mark the achievements that carry the most weight.</p>
-      <ol class="bs-steps" id="bsSteps">
-        {buildPhases.map((p) => <li data-from={p.from} data-to={p.to}>{p.name}</li>)}
-      </ol>
+      <div class="bs-swap" id="bsSwap">
+        <span class="bs-daynum" id="bsDay">Day 0</span>
+        <span class="bs-phase" id="bsPhase">Free CV audit</span>
+        <h3 id="bsTitle">Free CV audit</h3>
+        <p id="bsText"></p>
+        <p class="bs-gl">By the end of this day</p>
+        <ul class="bs-got" id="bsGot"></ul>
+      </div>
     </div>
   </div>
   <div class="bs-ctrl">
     <button type="button" class="bs-play" id="bsPlay" aria-label="Play the 7-day build">Play</button>
-    <div class="bs-track">
-      <input type="range" id="bsRange" min="0" max="7" step="1" value="0" aria-label="Day of the build" aria-valuetext="Day 0: Free CV audit">
-      <div class="bs-ticks" aria-hidden="true"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span></div>
-    </div>
+    <span class="bs-count" id="bsCount" aria-hidden="true">Day 0 of 7</span>
   </div>
   <p class="muted" style="margin-top:14px;font:400 12px/1.5 var(--mono)">The pages are his real base and final CVs with personal details hidden, and the clip is his public live site.</p>
 </div></section>
