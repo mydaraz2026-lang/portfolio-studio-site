@@ -5,9 +5,9 @@ export const contact = {
 };
 
 export const sites = [
-  { name: 'MH Chowdhury', host: 'mhchowdhury.netlify.app', url: 'https://mhchowdhury.netlify.app/' },
-  { name: 'SM Atiqur Rahman', host: 'sm-atiqurrahman.netlify.app', url: 'https://sm-atiqurrahman.netlify.app/' },
-  { name: 'Tausif Karim', host: 'tausif-karim.netlify.app', url: 'https://tausif-karim.netlify.app/' },
+  { name: 'MH Chowdhury', host: 'mhchowdhury.netlify.app', url: 'https://mhchowdhury.netlify.app/', image: '/sites/mh-chowdhury.webp' },
+  { name: 'SM Atiqur Rahman', host: 'sm-atiqurrahman.netlify.app', url: 'https://sm-atiqurrahman.netlify.app/', image: '/sites/sm-atiqur-rahman.webp' },
+  { name: 'Tausif Karim', host: 'tausif-karim.netlify.app', url: 'https://tausif-karim.netlify.app/', image: '/sites/tausif-karim.webp' },
 ];
 
 export const getItems = [
