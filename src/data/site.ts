@@ -11,17 +11,18 @@ export const sites = [
 ];
 
 export const getItems = [
-  ['Executive portfolio website', 'A fast, single-link home for your career'],
   ['Impact and metrics showcase', 'Your numbers, up front'],
   ['Experience timeline', 'Your roles and growth, told as a story'],
   ['Skills and credentials', 'Degrees, certifications and strengths in one place'],
   ['One-tap contact', 'PDF CV, LinkedIn, WhatsApp and email, one tap away'],
+  ['Media & Guest Profile', 'Optional: a producer-ready profile for podcasts, panels and keynotes, quoted to your brief'],
 ];
 
 const terms = '5 to 7 working days. Free CV audit first. Advance payment via bKash, Nagad or Upay.';
 export const plans = [
-  { label: 'Bangladesh', price: 'BDT 20,000 \u2013 25,000', note: terms, featured: true },
-  { label: 'International', price: '$450 \u2013 $600 USD', note: terms, featured: false },
+  { label: 'Website \u00b7 Bangladesh', price: 'BDT 20,000 \u2013 25,000', note: terms, featured: true },
+  { label: 'Website \u00b7 International', price: '$450 \u2013 $600 USD', note: terms, featured: false },
+  { label: 'Media & Guest Profile', price: 'Quoted', note: 'Positioning, headline numbers, interview angles and a booking page, built for podcasts, panels and keynotes. Priced to your brief.', featured: false },
 ];
 
 export const faq = [
@@ -29,6 +30,9 @@ export const faq = [
   ['What does it cost?', 'BDT 20,000 \u2013 25,000 in Bangladesh, and $450 \u2013 $600 USD internationally.'],
   ['How do I pay?', 'You pay an advance via bKash, Nagad or Upay.'],
   ['What do I need to send?', 'Your current CV is enough. We start with a free CV audit.'],
+  ['What is a Media & Guest Profile?', 'A producer-ready profile with your positioning, headline numbers, interview angles and a booking page. It is built for podcasts, panels and keynotes.'],
+  ['How much does a Media & Guest Profile cost?', 'It is quoted individually, based on your brief. Message us with your role and where you want to be booked.'],
+  ['Can I see my site before it goes live?', 'Yes. You review a private preview before your site goes live.'],
   ['Will it work on a phone?', 'Yes. Each profile is built to load fast and read well on a phone.'],
 ];
 

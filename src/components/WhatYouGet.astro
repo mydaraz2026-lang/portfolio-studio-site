@@ -2,7 +2,7 @@
 import { getItems } from '../data/site';
 ---
 <section class="sec" id="get"><div class="wrap get">
-  <div class="sec-head" style="margin:0"><span class="eyebrow">What you get</span><h2>One link that carries your career.</h2><p>Built for recruiters, boards and partners who give you ninety seconds on a phone.</p></div>
+  <div class="sec-head" style="margin:0"><span class="eyebrow">What you get</span><h2>Behind every long career is a story only you know.</h2><p>People only ever see the result: the title, the numbers, the milestone. The years of decisions, doubts and turning points behind it are known only to you. We turn those stories into one link you can share with anyone who wants to know how you got here.</p></div>
   <ol>
     {getItems.map(([title, detail], i) => (
       <li><span>{String(i + 1).padStart(2, '0')}</span><div>{title}<small>{detail}</small></div></li>

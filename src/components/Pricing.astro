@@ -2,7 +2,7 @@
 import { plans } from '../data/site';
 ---
 <section class="sec" id="pricing"><div class="wrap">
-  <div class="sec-head"><span class="eyebrow">Pricing</span><h2>One fixed price.</h2></div>
+  <div class="sec-head"><span class="eyebrow">Pricing</span><h2>Clear pricing for both services.</h2></div>
   <div class="plans">
     {plans.map((p) => (
       <div class={p.featured ? 'plan feat' : 'plan'}><span class="lbl">{p.label}</span><div class="price">{p.price}</div><p>{p.note}</p></div>
