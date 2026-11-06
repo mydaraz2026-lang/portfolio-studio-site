@@ -10,12 +10,29 @@
   var vid = document.getElementById('bsVid'), tag = document.getElementById('bsTag'), segTimer = null;
   var SEG = { 3: [0, 6], 4: [6, 12], 5: [24, 27.2], 6: [12, 24], 7: [0, 3] }, RATE = { 6: 1.5 };
   function dwell(d) { var s = SEG[d]; return Math.max(3200, s ? (s[1] - s[0]) / (RATE[d] || 1) * 1000 + 400 : 0); }
+  // Still frames of the clip sit under the video. They cross-fade from the start to the end of each day's stretch,
+  // so the stage always moves, even where the phone blocks video playback (Low Power Mode, data saver).
+  var stills = [].slice.call(document.querySelectorAll('.bs-stills img'));
+  function still(t) { for (var i = 0; i < stills.length; i++) if (+stills[i].getAttribute('data-t') === Math.round(t)) return stills[i]; return null; }
+  function runStills(d) {
+    var s = SEG[d]; stills.forEach(function (im) { im.style.transition = 'none'; im.style.opacity = 0; im.style.zIndex = 0; });
+    if (!s) return;
+    var a = still(s[0]), b = still(s[1]); if (!a || !b) return;
+    if (reduce) { b.style.opacity = 1; return; }
+    a.style.opacity = 1; void a.offsetWidth;
+    b.style.zIndex = 1; b.style.transition = 'opacity ' + Math.round(dwell(d) * 0.8) + 'ms linear'; b.style.opacity = 1;
+  }
+  if (vid) {
+    vid.addEventListener('playing', function () { vid.classList.add('on'); });
+    vid.addEventListener('error', function () { vid.classList.remove('on'); });
+  }
   function runClip(d) {
-    clearTimeout(segTimer); if (!vid) return;
+    clearTimeout(segTimer); runStills(d); if (!vid) return;
+    vid.classList.remove('on');
     var s = SEG[d]; if (!s) { try { vid.pause(); } catch (e) {} return; }
-    try { vid.playbackRate = RATE[d] || 1; vid.currentTime = reduce ? (s[0] + s[1]) / 2 : s[0]; } catch (e) {}
     if (reduce) return;
-    var p = vid.play(); if (p && p.catch) p.catch(function () {});
+    try { vid.playbackRate = RATE[d] || 1; vid.currentTime = s[0]; } catch (e) {}
+    var p = vid.play(); if (p && p.catch) p.catch(function () { vid.classList.remove('on'); });
     segTimer = setTimeout(function () { try { vid.pause(); } catch (e) {} }, (s[1] - s[0]) / (RATE[d] || 1) * 1000);
   }
   // While playing, the rail line grows steadily toward the next day over this day's dwell time.

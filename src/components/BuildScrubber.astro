@@ -21,7 +21,10 @@ import { buildDays } from '../data/site';
             <img class="pg pg3" src="/cv/base-3.webp" alt="Base CV, page 3 of 4" width="900" height="1165" />
           </div>
           <div class="bs-vid">
-            <video id="bsVid" muted playsinline preload="auto" poster="/video/mehdi-site-poster.webp" aria-label="Screen recording of the finished site, played in step with the build days"><source src="/video/mehdi-site.mp4" type="video/mp4" /></video>
+            <div class="bs-stills" aria-hidden="true">
+              {[0, 3, 6, 12, 24, 27].map((t) => <img data-t={t} src={`/video/f${t}.webp`} alt="" width="950" height="420" loading="eager" decoding="async" />)}
+            </div>
+            <video id="bsVid" muted playsinline preload="auto" aria-label="Screen recording of the finished site, played in step with the build days"><source src="/video/mehdi-site.mp4" type="video/mp4" /></video>
           </div>
           <div class="bs-final">
             <span class="fl">Final CV · 2 pages</span>
