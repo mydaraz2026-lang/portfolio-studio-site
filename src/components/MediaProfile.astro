@@ -1,0 +1,20 @@
+---
+const whatsapp = 'https://wa.me/8801790653537?text=Hi%20Shuvo%2C%20I%20would%20like%20a%20quote%20for%20a%20media%20and%20guest%20profile.';
+const parts = ['Positioning', 'Headline numbers', 'Interview angles', 'A booking page'];
+---
+<section class="sec" id="media"><div class="wrap media">
+  <div class="media-copy">
+    <span class="eyebrow">Quoted individually</span>
+    <h2>Media &amp; Guest <em>Profile</em></h2>
+    <p class="media-lead">A producer-ready profile for senior professionals: positioning, headline numbers, interview angles and a booking page. Built for podcasts, panels and keynotes.</p>
+    <ul class="media-parts" aria-label="What the profile includes">
+      {parts.map((p) => <li>{p}</li>)}
+    </ul>
+    <p class="media-price">Priced to your brief.</p>
+    <a class="cta cta-gold" href={whatsapp} target="_blank" rel="noopener">Request a quote</a>
+  </div>
+  <figure class="media-cover">
+    <img src="/sites/guest-profile-sample.webp" width="560" height="725" loading="lazy" decoding="async" alt="Cover page of a guest profile prepared for Muhammed Mehdi Hasan Chowdhury, titled Sales Turnaround Strategist and Channel Growth Architect" />
+    <figcaption>Sample: Mehdi&rsquo;s guest profile, shared with his permission</figcaption>
+  </figure>
+</div></section>
