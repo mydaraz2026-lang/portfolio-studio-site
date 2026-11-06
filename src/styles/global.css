@@ -265,8 +265,9 @@ details p { padding: 0 0 24px; color: var(--muted); max-width: 64ch; }
 .tl-prev { position: relative; width: 100%; border: 1px solid #3d5290; border-radius: 14px; overflow: hidden; background: #0b1430; height: 262px; }
 .tl-scale { position: absolute; left: 0; top: 0; width: 560px; height: 392px; transform-origin: 0 0; }
 .tl-prev .pv { opacity: 1; visibility: visible; }
-.quote-slot { border-style: dashed; border-color: #4a5f98; background: transparent; }
-.quote-slot p { font: 500 18px/1.5 var(--display); color: var(--muted); } .quote-slot small { font: 400 12px var(--mono); color: var(--muted); }
+.tl-reaction { margin: 0; background: var(--surf2); border-color: rgba(232,194,115,.45); }
+.tl-reaction img { display: block; width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--line); background: #fff; }
+.tl-reaction figcaption { color: var(--muted); font: 400 12px/1.5 var(--mono); }
 .tl-note { text-align: center; margin-top: 28px; color: var(--muted); font: 400 12px/1.5 var(--mono); }
 @media (max-width: 768px) {
   .tl-line { left: 20px; transform: none; }
