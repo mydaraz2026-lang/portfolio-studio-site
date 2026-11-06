@@ -237,3 +237,41 @@ details p { padding: 0 0 24px; color: var(--muted); max-width: 64ch; }
   .st-hero { grid-template-columns: 1fr; } .st-photo { display: none; } .st-nav span { display: none; } .pv-phone, .pv-review { grid-template-columns: 1fr; } .ph-desk { display: none; } .rv-draft { min-height: 150px; }
 }
 @media (prefers-reduced-motion: reduce) { .pv { transition: none; } }
+
+/* ===== vertical build timeline ===== */
+.tl-head { text-align: center; display: grid; gap: 14px; justify-items: center; margin-bottom: 56px; }
+.tl-head h2 { font-size: clamp(32px, 5vw, 52px); } .tl-head p { color: var(--muted); font-size: 18px; max-width: 46ch; }
+.tl { position: relative; max-width: 1000px; margin: 0 auto; }
+.tl-line { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: var(--line); transform: translateX(-50%); overflow: hidden; }
+.tl-progress { position: absolute; top: 0; left: 0; width: 100%; height: 0; background: var(--gold); }
+.tl-item { position: relative; width: 50%; padding: 18px 44px; box-sizing: border-box; }
+.tl-item.left { left: 0; } .tl-item.right { left: 50%; }
+.tl-dot { position: absolute; top: 40px; width: 18px; height: 18px; border-radius: 50%; background: var(--ink); border: 3px solid var(--line); z-index: 2; transition: background .3s, border-color .3s, box-shadow .3s, transform .3s; }
+.tl-item.left .tl-dot { right: -9px; } .tl-item.right .tl-dot { left: -9px; }
+.tl-dot.active { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 5px rgba(232,194,115,.2), 0 0 18px rgba(232,194,115,.5); transform: scale(1.1); }
+.tl-card { background: var(--surf); border: 1px solid var(--line); border-radius: 22px; padding: 26px; display: grid; gap: 14px; }
+.tl.anim .tl-card { opacity: 0; transform: translateY(36px); transition: opacity .6s cubic-bezier(.16,1,.3,1), transform .6s cubic-bezier(.16,1,.3,1); }
+.tl.anim .tl-card.visible { opacity: 1; transform: none; }
+.tl-badge { justify-self: start; font: 500 12px var(--mono); letter-spacing: .16em; text-transform: uppercase; background: var(--gold); color: var(--on-gold); border-radius: 999px; padding: 5px 12px; }
+.tl-card h3 { font: 800 clamp(22px, 2.6vw, 28px)/1.1 var(--display); letter-spacing: -.01em; }
+.tl-card > p { color: var(--muted); font-size: 16px; }
+.micro { display: grid; gap: 8px; border-left: 3px solid var(--gold); background: var(--ink); border-radius: 0 12px 12px 0; padding: 12px 14px; font-size: 14px; line-height: 1.45; }
+.micro span { display: block; font: 500 10px var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 2px; }
+.micro .after { color: var(--text); font-weight: 600; } .micro .after span { color: var(--gold); }
+.tl-sg { display: grid; gap: 8px; margin: 0; }
+.tl-sg div { display: grid; grid-template-columns: 86px 1fr; gap: 10px; align-items: baseline; font-size: 14px; }
+.tl-sg dt { font: 500 10px var(--mono); letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
+.tl-sg dd { margin: 0; color: var(--text); }
+.tl-prev { position: relative; width: 100%; border: 1px solid #3d5290; border-radius: 14px; overflow: hidden; background: #0b1430; height: 262px; }
+.tl-scale { position: absolute; left: 0; top: 0; width: 560px; height: 392px; transform-origin: 0 0; }
+.tl-prev .pv { opacity: 1; visibility: visible; }
+.quote-slot { border-style: dashed; border-color: #4a5f98; background: transparent; }
+.quote-slot p { font: 500 18px/1.5 var(--display); color: var(--muted); } .quote-slot small { font: 400 12px var(--mono); color: var(--muted); }
+.tl-note { text-align: center; margin-top: 28px; color: var(--muted); font: 400 12px/1.5 var(--mono); }
+@media (max-width: 768px) {
+  .tl-line { left: 20px; transform: none; }
+  .tl-item { width: 100%; padding: 14px 0 14px 52px; } .tl-item.left, .tl-item.right { left: 0; }
+  .tl-dot, .tl-item.left .tl-dot, .tl-item.right .tl-dot { left: 11px; right: auto; top: 38px; }
+  .tl-card { padding: 20px; } .tl-sg div { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { .tl-card, .tl-dot { transition: none; } }
