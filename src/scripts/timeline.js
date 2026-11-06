@@ -8,9 +8,12 @@
   var scales = [].slice.call(tl.querySelectorAll('.tl-prev'));
 
   function fit() {
+    // A narrow preview box is drawn at a phone-sized width, so its text stays larger.
     scales.forEach(function (box) {
-      var inner = box.firstElementChild, s = box.clientWidth / 560;
-      inner.style.transform = 'scale(' + s + ')'; box.style.height = (392 * s) + 'px';
+      var narrow = box.clientWidth < 430, dw = narrow ? 360 : 560, dh = narrow ? 420 : 392;
+      var inner = box.firstElementChild, s = box.clientWidth / dw;
+      inner.style.width = dw + 'px'; inner.style.height = dh + 'px';
+      inner.style.transform = 'scale(' + s + ')'; box.style.height = (dh * s) + 'px';
     });
   }
   var ticking = false;

@@ -291,3 +291,22 @@ details p { padding: 0 0 24px; color: var(--muted); max-width: 64ch; }
 .media-cover img { display: block; width: min(100%, 420px); height: auto; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 40px 70px -30px rgba(0,0,0,.85); }
 .media-cover figcaption { color: var(--muted); font: 400 12px/1.5 var(--mono); text-align: center; }
 @media (max-width: 860px) { .media { grid-template-columns: 1fr; gap: 36px; } .media-cover { order: 2; } }
+
+/* ===== mobile polish (from review) ===== */
+.nav-wa .wa-ico { display: none; flex: none; }
+@media (max-width: 399px) {
+  .nav-wa { width: 44px; min-height: 44px; padding: 0; border-radius: 50%; }
+  .nav-wa .wa-txt { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .nav-wa .wa-ico { display: block; }
+}
+@media (max-width: 768px) {
+  /* 1. previews run edge to edge inside their card, so their text is larger */
+  .tl-card:has(.tl-prev) { overflow: hidden; }
+  .tl-prev { margin: 0 -20px -20px; width: auto; border-left: 0; border-right: 0; border-bottom: 0; border-radius: 0; }
+  /* 2. more room between the last process card and the client reaction */
+  .tl-item:has(.tl-reaction) { padding-top: 40px; }
+  .tl-item:has(.tl-reaction) .tl-dot { top: 64px; }
+  /* 3. What you get: bigger numbers, aligned to the first line of the title */
+  .get li { align-items: start; grid-template-columns: 40px 1fr; }
+  .get li span { font-size: 17px; line-height: 26px; }
+}
