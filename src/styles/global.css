@@ -68,7 +68,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 76px; }
 .nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40; margin-inline: calc(-1 * max(16px, env(safe-area-inset-left, 0px))); padding-inline: max(16px, env(safe-area-inset-left, 0px)); background: color-mix(in srgb, var(--ink) 88%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
 .nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 68px; }
 .brand { display: flex; align-items: center; gap: 12px; font: 500 12px var(--mono); letter-spacing: .22em; text-transform: uppercase; text-decoration: none; color: var(--gold); white-space: nowrap; }
-.brand i { width: 30px; height: 30px; border-radius: 9px; background: linear-gradient(135deg, var(--gold), #c99a3e); color: #1a1405; display: grid; place-items: center; font: 800 14px var(--display); letter-spacing: 0; font-style: normal; }
+.brand-mark { display: block; flex: none; width: auto; height: 44px; }
 .links { display: flex; gap: 26px; font-size: 14px; color: var(--muted); } .links a { text-decoration: none; transition: color .2s; } .links a:hover { color: var(--text); }
 @media (max-width: 860px) { .links { display: none; } }
 .cta { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 28px; border-radius: 999px; font: 600 16px var(--body); text-decoration: none; border: 1px solid var(--line); color: var(--text); transition: transform .2s, background .2s, border-color .2s; cursor: pointer; background: transparent; }
@@ -310,3 +310,9 @@ details p { padding: 0 0 24px; color: var(--muted); max-width: 64ch; }
   .get li { align-items: start; grid-template-columns: 40px 1fr; }
   .get li span { font-size: 17px; line-height: 26px; }
 }
+
+/* ===== logo ===== */
+.sitefoot { align-items: center; }
+.foot-logo { display: block; width: 190px; height: auto; }
+.foot-meta { display: grid; gap: 4px; text-align: right; }
+@media (max-width: 560px) { .sitefoot { flex-direction: column; align-items: flex-start; } .foot-meta { text-align: left; } .foot-logo { width: 170px; } }
