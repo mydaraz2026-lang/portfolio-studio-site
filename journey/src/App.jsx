@@ -1,4 +1,4 @@
-import { lazy, Suspense, useRef, useState } from 'react';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { MILESTONE_STOPS } from './config/milestoneStops';
 import { useScrollProgress } from './hooks/useScrollProgress';
 import { useLayout, usePrefersReducedMotion } from './hooks/useMediaQuery';
@@ -7,6 +7,7 @@ import SiteHeader from './components/overlay/SiteHeader';
 import ProgressRail from './components/overlay/ProgressRail';
 import OverlayPanels from './components/overlay/OverlayPanels';
 import StaticJourney from './components/fallback/StaticJourney';
+import SiteFooter from './components/overlay/SiteFooter';
 import WebGLErrorBoundary from './components/experience/WebGLErrorBoundary';
 
 // Three.js loads only when the 3D journey is actually shown — the fallback stays lightweight.
@@ -26,6 +27,12 @@ export default function App() {
   const mode = show3D ? 'journey' : 'static';
 
   useScrollProgress(containerRef, mode);
+
+  // Gentle snapping so the page always settles on a stop with its card fully readable.
+  useEffect(() => {
+    document.documentElement.classList.toggle('journey-snap', show3D);
+    return () => document.documentElement.classList.remove('journey-snap');
+  }, [show3D]);
 
   let reason = 'user';
   if (glFailed) reason = 'gl-error';
@@ -56,7 +63,7 @@ export default function App() {
         </WebGLErrorBoundary>
       )}
 
-      <ProgressRail stops={stops} />
+      <ProgressRail stops={stops} show3D={show3D} canToggle={canRender3D} onToggle={() => setUserChoice(!show3D)} />
 
       <main id="journey" ref={containerRef} className="relative z-10" key={mode}>
         {show3D ? (
@@ -69,6 +76,7 @@ export default function App() {
           />
         )}
       </main>
+      <SiteFooter />
     </>
   );
 }

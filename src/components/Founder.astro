@@ -1,0 +1,15 @@
+---
+import { founder } from '../data/site';
+---
+<section class="sec band" id="founder"><div class="wrap founder">
+  <div class="founder-copy">
+    <span class="eyebrow">Who builds it</span>
+    <h2>Built by <em>{founder.name}</em></h2>
+    <p>{founder.bio}</p>
+    <div class="row"><a class="cta cta-gold cta-sm" href={founder.linkedin} target="_blank" rel="noopener">Shuvo on LinkedIn ↗</a></div>
+  </div>
+  <figure class="founder-quote">
+    <blockquote>“{founder.quote}”</blockquote>
+    <figcaption><b>{founder.quoteBy}</b>, {founder.quoteRole}. <a href={founder.postUrl} target="_blank" rel="noopener">View the post ↗</a></figcaption>
+  </figure>
+</div></section>

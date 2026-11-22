@@ -1,0 +1,11 @@
+---
+import { getItems } from '../data/site';
+---
+<section class="sec" id="get"><div class="wrap get">
+  <div class="sec-head" style="margin:0"><span class="eyebrow">What you get</span><h2>One link that carries your career.</h2><p>Built for recruiters, boards and partners who give you ninety seconds on a phone.</p></div>
+  <ol>
+    {getItems.map(([title, detail], i) => (
+      <li><span>{String(i + 1).padStart(2, '0')}</span><div>{title}<small>{detail}</small></div></li>
+    ))}
+  </ol>
+</div></section>

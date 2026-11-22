@@ -84,3 +84,14 @@ h2 {
     animation: none;
   }
 }
+
+/* Scroll snapping in the 3D journey: settle on a milestone stop, never between two. */
+html.journey-snap {
+  scroll-snap-type: y mandatory;
+}
+html.journey-snap [data-milestone-stop] {
+  scroll-snap-align: start;
+}
+html.journey-snap footer {
+  scroll-snap-align: end;
+}

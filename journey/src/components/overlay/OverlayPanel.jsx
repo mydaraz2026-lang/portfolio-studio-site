@@ -57,7 +57,7 @@ export default function OverlayPanel({ stop, active = true, mode = 'journey', co
 
       {stop.role && <p className="mt-1.5 text-[15px] font-medium text-ink-muted">{stop.role}</p>}
 
-      {!(compact && stop.kind === 'sample') && (
+      {!(compact && (stop.kind === 'sample' || stop.kind === 'proof')) && (
         <p className="mt-3 text-[15px] leading-relaxed sm:mt-4 sm:text-base">{stop.summary}</p>
       )}
 
@@ -115,6 +115,7 @@ export default function OverlayPanel({ stop, active = true, mode = 'journey', co
         </a>
       )}
 
+      {stop.kind === 'proof' && <ProofBlock stop={stop} compact={compact} />}
       {stop.kind === 'media' && <MediaBlock stop={stop} />}
       {stop.kind === 'faq' && <FaqList items={stop.faq} />}
 
@@ -198,6 +199,29 @@ function Offer({ stop, compact }) {
         ))}
       </div>
       <p className="mt-3 text-[13px] text-ink-muted">{stop.terms}</p>
+    </>
+  );
+}
+
+function ProofBlock({ stop, compact }) {
+  return (
+    <>
+      <figure className="mt-4 border-l-2 border-accent pl-4">
+        <blockquote className={`font-[family-name:var(--font-display)] font-bold leading-snug ${compact ? 'text-[1.02rem]' : 'text-[1.12rem]'}`}>
+          “{stop.quote}”
+        </blockquote>
+        <figcaption className="mt-2 text-[13px] text-ink-muted">
+          <span className="font-semibold text-ink">{stop.quoteBy}</span>, {stop.quoteRole}
+        </figcaption>
+      </figure>
+      <div className="mt-5 flex flex-wrap gap-3">
+        <a href={stop.linkedin} target="_blank" rel="noopener noreferrer" className={btnGold}>
+          Shuvo on LinkedIn ↗
+        </a>
+        <a href={stop.postUrl} target="_blank" rel="noopener noreferrer" className={btnGhost}>
+          View the post ↗
+        </a>
+      </div>
     </>
   );
 }

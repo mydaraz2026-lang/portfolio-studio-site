@@ -1,50 +1,54 @@
 # Portfolio Studio — landing page
 
-The live site at **portfoliostudiocv.netlify.app**: a scroll-driven 3D camera journey. Scrolling moves the camera along a curved path (the *camera spline*) through 13 *milestone stops*. Each stop pairs a 3D scene with a readable HTML card (the *overlay panel*).
+The live site at **portfoliostudiocv.netlify.app** has two parts:
 
-Built with React 19, React Three Fiber / Three.js, Tailwind CSS v4 and Vite. Netlify builds it automatically from `main`: `npm run build` → `dist/`, Node 22 (see `netlify.toml`).
+- **Classic site** (`/`): a normal, clickable page. Visitors use the menu to jump to Samples, the 7-day build, What you get, About, Pricing or FAQ. Built with Astro.
+- **3D journey** (`/journey/`): an optional scroll-driven camera journey through the same story. Built with React 19, React Three Fiber / Three.js, Tailwind CSS v4 and Vite.
+
+The classic site links to the journey from the menu, the hero, a preview card and the footer. The journey links back with "← Classic site" in its header, phone stop list and footer.
+
+Netlify builds both automatically from `main`: `npm run build` → `dist/`, Node 22 (see `netlify.toml`).
 
 ## Run it locally
 
 ```bash
 npm install
-npm run dev       # http://localhost:5173
-npm run build     # production build in dist/
+npm run dev       # classic site at http://localhost:4321
+npm run build     # builds the classic site, then the journey into dist/journey/
 npm run preview   # serve the production build
 ```
 
-## The journey
+To work on the journey on its own:
 
-| Stop | Scene |
-|---|---|
-| Start | Gateway the camera flies through |
-| Samples | Three client sites on floating screens |
-| MH Chowdhury · SM Atiqur Rahman · Tausif Karim | Camera dives into each screen; the site recording scrolls |
-| Day 0 | Sample CV: six results highlighted, then a before → after rewrite |
-| Days 1–2 | Rising metric bars |
-| Days 3–5 | Desktop + phone build (Day 3 hero, Day 4 impact, Day 5 contact + phone view) |
-| Days 6–7 | Launch beacon |
-| Pricing | Crystal — BDT 25,000 / $400 USD |
-| Media & Guest Profile | Mehdi's 7-page guest profile scrolling on a display |
-| FAQ | Speech bubbles |
-| Get started | Node network that resolves into the Portfolio Studio logo |
+```bash
+cd journey
+npm install
+npm run dev       # http://localhost:5173
+```
 
-Visitors with reduced motion turned on, or without WebGL, get a static timeline with the same content. The header has a 3D/static toggle.
+## Folder layout
+
+```
+src/                 classic site (Astro)
+  pages/index.astro  section order
+  components/        Nav, Hero, ParallaxStack (Profiles already live), Journey3D teaser,
+                     BuildTimeline, WhatYouGet, Founder, MediaProfile, Pricing, Faq, FinalCta, Footer
+  data/site.ts       copy, prices, FAQ, contact links, client sites, founder
+  styles/global.css  colours, type and all section styles
+  scripts/           parallax, build-stage and timeline animations
+public/              logo, icons and sample screenshots for the classic site
+journey/             the 3D journey (its own Vite project)
+  src/config/milestoneStops.js   journey copy, prices, FAQ, stop order, camera positions
+  src/config/cameraSpline.js     camera feel (dwell, follow speed, framing)
+  src/components/experience/     3D scenes
+  src/components/overlay/        cards, progress rail, header, footer
+  public/                        sample and stage videos
+```
 
 ## Where to change things
 
-- **Copy, prices, FAQ, contact, stop order, camera positions:** `src/config/milestoneStops.js`
-- **Colours:** `src/config/theme.js` (drives both the 3D scene and the Tailwind classes)
-- **Camera feel** (dwell at stops, follow speed, framing, lens): `src/config/cameraSpline.js`
-- **3D scenes:** `src/components/experience/monuments/`
-- **Cards, progress rail, header:** `src/components/overlay/`
-- **Static fallback:** `src/components/fallback/`
+- **Prices, FAQ, contact details:** update both `src/data/site.ts` and `journey/src/config/milestoneStops.js` so the two pages agree.
+- **WhatsApp messages:** the classic site pre-fills "I saw your website…" and the journey pre-fills "I took the 3D journey…", so you can tell which page a lead came from.
+- **Section order on the classic site:** `src/pages/index.astro`.
 
-### Media files (`public/`)
-
-- `samples/*.mp4|jpg` — client site scrolls (stitched into full pages from the screen recordings, replayed at 16:10) and posters
-- `stages/audit.*`, `stages/monitor.*`, `stages/phone.*` — Day 0 and Days 3–5 animations
-- `stages/guest-profile.*` — guest profile reading-view scroll and cover
-- `logo/ps-logo-emblem.png` — transparent logo used at Get started
-
-Videos load only when a visitor approaches their stop, start from the beginning on arrival, and pause when the visitor moves on. To swap a client recording, replace the matching `samples/*.mp4` (946 × 592, 16:10) and its poster `.jpg`.
+Visitors with reduced motion turned on see the classic site without the parallax movement. In the journey, visitors with reduced motion or without WebGL get a static timeline with the same content.

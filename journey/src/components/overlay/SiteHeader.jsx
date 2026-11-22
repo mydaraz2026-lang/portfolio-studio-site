@@ -18,9 +18,21 @@ export default function SiteHeader({ intro, show3D, canToggle, onToggle }) {
             onClick={onToggle}
             className="hidden min-h-10 rounded-full border border-on-dark/25 px-4 text-sm font-medium text-on-dark transition-colors hover:border-on-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:block"
           >
-            {show3D ? 'Static view' : '3D journey'}
+            {show3D ? 'Simple view' : '3D view'}
           </button>
         )}
+        <a
+          href={CONTACT.classicUrl}
+          className="hidden min-h-10 items-center rounded-full px-3 text-sm font-semibold text-on-dark-muted transition-colors hover:text-on-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:inline-flex"
+        >
+          ← Classic site
+        </a>
+        <a
+          href="#pricing"
+          className="hidden min-h-10 items-center rounded-full px-3 text-sm font-semibold text-on-dark transition-colors hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent md:inline-flex"
+        >
+          Pricing
+        </a>
         <a
           href={CONTACT.whatsappUrl}
           target="_blank"

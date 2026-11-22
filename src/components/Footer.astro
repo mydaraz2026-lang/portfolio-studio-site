@@ -1,0 +1,11 @@
+---
+import { contact, founder, journeyUrl } from '../data/site';
+---
+<div class="wrap"><footer class="sitefoot">
+  <img class="foot-logo" src="/logo/ps-logo-dark.webp" width="480" height="227" alt="Portfolio Studio" loading="lazy" decoding="async" />
+  <div class="foot-meta">
+    <span>Founded by {founder.name} · Dhaka, Bangladesh</span>
+    <span class="foot-links"><a href={founder.linkedin} target="_blank" rel="noopener">LinkedIn</a><a href={contact.whatsappUrl} target="_blank" rel="noopener">WhatsApp +880 1790-653537</a><a href={`mailto:${contact.email}`}>{contact.email}</a><a href={journeyUrl}>3D journey</a></span>
+    <span>© {new Date().getFullYear()} Portfolio Studio · Executive portfolio websites</span>
+  </div>
+</footer></div>

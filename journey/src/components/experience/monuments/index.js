@@ -12,6 +12,7 @@ import Studio from './Studio';
 import MediaKit from './MediaKit';
 import Bubbles from './Bubbles';
 import Emergence from './Emergence';
+import Endorsement from './Endorsement';
 
 /**
  * Monument registry — the `monument` field of a milestone stop picks one of these.
@@ -33,4 +34,5 @@ export const MONUMENTS = {
   mediakit: MediaKit,
   bubbles: Bubbles,
   emergence: Emergence,
+  endorsement: Endorsement,
 };

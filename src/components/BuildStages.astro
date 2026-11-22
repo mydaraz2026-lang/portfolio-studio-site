@@ -1,0 +1,145 @@
+---
+import { buildStages } from '../data/site';
+---
+<section class="sec" id="build"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow">How it works</span><h2>Live in 7 days, <em>step by step.</em></h2><p>Pick a stage, then a day, to see what happens and what you get. The preview shows a sample sales professional.</p></div>
+  <div class="bs" id="bsRoot">
+    <div class="bs-tabs" role="tablist" aria-label="The 7-day build">
+      {buildStages.map((st, i) => (
+        <button type="button" class="bs-tab" role="tab" id={`bsTab${i}`} aria-controls={`bsPanel${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}><span class="d">{st.tab}</span><span class="n">{st.name}</span></button>
+      ))}
+    </div>
+    <div class="bs-panel">
+      <div class="bs-stage">
+        <div class="bs-daybar" id="bsDays">
+          {buildStages.map((st, i) => (
+            <div class="bs-days" data-stage={i} hidden={i !== 0} role="group" aria-label={`Days in ${st.name}`}>
+              {st.days.map((d, k) => (
+                <button type="button" class="bs-day" data-day={d.n} aria-pressed={k === 0 ? 'true' : 'false'}>{d.label}</button>
+              ))}
+            </div>
+          ))}
+        </div>
+        <div class="bs-frame" id="bs">
+          <div class="bs-bar"><span class="bs-dots"><i></i><i></i><i></i></span><span class="bs-url">yourname</span><span class="bs-sample">Sample</span><span class="bs-livef">Live</span></div>
+          <div class="bs-body">
+
+            <!-- Day 0: the CV, audited -->
+            <div class="pv pv-cv on" data-pv="0" aria-hidden="true">
+              <span class="cvpg">Your CV · 4 pages</span><span class="cvaudit">Audit: 6 key results found</span>
+              <div class="cvh">Your Name</div><div class="cvsub">Head of Sales · Dhaka · email@example.com · +880 1XXX-XXXXXX</div>
+              <div class="cvs">Career Summary:</div>
+              <p class="cvp">A sales and business development professional with over 15 years of experience across distribution, export and key accounts. Responsible for achieving targets, managing field teams and handling relationships with distributors and corporate clients&hellip;</p>
+              <div class="cvs">Key Proficiencies:</div>
+              <div class="cvcols"><span>Strategic problem solving</span><span>Team development</span><span>Channel management</span><span>Negotiation</span></div>
+              <div class="cvs">Major Accomplishments:</div>
+              <div class="cvk"><i>1</i><span>Grew overall sales by 62% over six years</span></div>
+              <p class="cvp">Responsible for appointing distributors, preparing sales reports and coordinating with the finance and branding teams&hellip;</p>
+              <div class="cvk"><i>2</i><span>Tripled export sales within one year</span></div>
+              <div class="cvk"><i>3</i><span>Recovered 80% of overdue corporate dues within 12 months</span></div>
+            </div>
+
+            <!-- Day 1: headline and numbers -->
+            <div class="pv pv-dark" data-pv="1" aria-hidden="true">
+              <div class="ps-label">Your headline</div>
+              <div class="ps-head">Senior sales leader: distribution, export and key accounts.</div>
+              <div class="ps-sub">Turning channel networks into steady, measurable growth.</div>
+              <div class="ps-label">Numbers chosen from your CV</div>
+              <div class="ps-tiles">
+                <div><b>15+</b><span>Years in sales</span><em>From your summary</em></div>
+                <div><b>62%</b><span>Sales growth, 6 years</span><em>From your achievements</em></div>
+                <div><b>3x</b><span>Export growth, 1 year</span><em>From your achievements</em></div>
+                <div><b>120</b><span>Sales team led</span><em>From your experience</em></div>
+              </div>
+            </div>
+
+            <!-- Day 2: site plan and timeline -->
+            <div class="pv pv-dark" data-pv="2" aria-hidden="true">
+              <div class="ps-label">Sections of your site</div>
+              <div class="ps-chips"><span>Profile</span><span>Impact</span><span>Experience</span><span>Expertise</span><span>Credentials</span><span>Contact</span></div>
+              <div class="ps-label">Your career timeline</div>
+              <div class="ps-rows">
+                <div><b>Head of Sales</b><span>Company C · 2019–Now</span><em>National sales plan, 120-person team</em></div>
+                <div><b>Senior Sales Manager</b><span>Company B · 2014–2019</span><em>Export launch, three new markets</em></div>
+                <div><b>Sales Manager</b><span>Company A · 2009–2014</span><em>Built the distributor network</em></div>
+              </div>
+            </div>
+
+            <!-- Day 3: the hero of the site -->
+            <div class="pv pv-dark pv-site" data-pv="3" aria-hidden="true">
+              <div class="st-nav"><b>Your Name</b><span>Profile</span><span>Impact</span><span>Experience</span><span>Expertise</span><span>Contact</span><i>Let&rsquo;s connect</i></div>
+              <div class="st-hero">
+                <div class="st-copy"><small>Executive portfolio · Dhaka</small><h4>Your Name</h4><p class="role">Senior Sales &amp; Business Development Leader</p><p class="lede">15+ years directing distribution, export and key accounts.</p><div class="st-cta"><span class="g">View the impact</span><span>Download CV</span></div></div>
+                <div class="st-photo"><svg viewBox="0 0 120 150" aria-hidden="true"><circle cx="60" cy="52" r="24" fill="#3a4d80"/><path d="M12 150c2-40 22-62 48-62s46 22 48 62z" fill="#3a4d80"/></svg><span class="st-badge">Head of Sales<small>Company C · 2019–Now</small></span></div>
+              </div>
+              <div class="st-stats"><div><b>15+</b><span>Years in sales</span></div><div><b>62%</b><span>Sales growth</span></div><div><b>120</b><span>Team led</span></div></div>
+            </div>
+
+            <!-- Day 4: impact and experience -->
+            <div class="pv pv-dark" data-pv="4" aria-hidden="true">
+              <div class="ps-label">Career impact</div>
+              <div class="ps-tiles ps-bars">
+                <div><b>62%</b><span>Sales growth</span><u style="--w:62%"></u></div>
+                <div><b>3x</b><span>Export growth</span><u style="--w:90%"></u></div>
+                <div><b>80%</b><span>Dues recovered</span><u style="--w:80%"></u></div>
+                <div><b>120</b><span>Team led</span><u style="--w:70%"></u></div>
+              </div>
+              <div class="ps-label">Career evolution</div>
+              <div class="ps-tl">
+                <div><i></i><b>Company C</b><span>Head of Sales · 2019–Now</span></div>
+                <div><i></i><b>Company B</b><span>Senior Sales Manager · 2014–2019</span></div>
+                <div><i></i><b>Company A</b><span>Sales Manager · 2009–2014</span></div>
+              </div>
+            </div>
+
+            <!-- Day 5: phone first and contact links -->
+            <div class="pv pv-dark pv-phone" data-pv="5" aria-hidden="true">
+              <div class="ph-desk"><span class="ph-tag">Desktop</span><div class="ph-nav"></div><b>Your Name</b><small>Senior Sales Leader</small><div class="ph-lines"><i></i><i></i><i></i></div></div>
+              <div class="ph-mob"><span class="ph-tag">Phone</span><div class="ph-screen"><b>Your Name</b><small>Head of Sales · Dhaka</small><div class="ph-stats"><i></i><i></i></div><span class="g">Download CV</span><span>LinkedIn</span><span>WhatsApp</span><span>Email</span></div></div>
+              <div class="ph-note">One-tap links, built for phones first</div>
+            </div>
+
+            <!-- Day 6: review -->
+            <div class="pv pv-dark pv-review" data-pv="6" aria-hidden="true">
+              <div class="rv-draft"><span class="pin p1">1</span><span class="pin p2">2</span><span class="pin p3">3</span><div class="rv-nav"></div><b>Your Name</b><small>Senior Sales Leader</small><div class="rv-tiles"><i></i><i></i><i></i></div><div class="rv-lines"><i></i><i></i></div></div>
+              <div class="rv-list"><div class="ps-label">Your feedback</div>
+                <div class="rv-item"><i>1</i><span>Move Impact above Experience</span><em>Done</em></div>
+                <div class="rv-item"><i>2</i><span>Add MBA to Credentials</span><em>Done</em></div>
+                <div class="rv-item"><i>3</i><span>Use the new photo</span><em>Done</em></div>
+              </div>
+            </div>
+
+            <!-- Day 7: live -->
+            <div class="pv pv-dark pv-launch" data-pv="7" aria-hidden="true">
+              <div class="ln-live"><span class="ln-dot"></span><b>Your site is live</b><small>yourname</small></div>
+              <div class="ps-label">Ready before launch</div>
+              <div class="ln-checks"><span>PDF CV attached</span><span>LinkedIn, WhatsApp and email links tested</span><span>Phone view checked</span></div>
+              <div class="ps-label">Share your link</div>
+              <div class="ps-chips"><span>LinkedIn</span><span>Email signature</span><span>Your CV</span><span>WhatsApp</span></div>
+            </div>
+
+          </div>
+        </div>
+        <p class="bs-note">Sample content for illustration. Your site uses your own facts and numbers.</p>
+      </div>
+      <div class="bs-detail">
+        {buildStages.map((st, i) => (
+          <div class="bs-pane" role="tabpanel" id={`bsPanel${i}`} aria-labelledby={`bsTab${i}`} hidden={i !== 0}>
+            <h3>{st.name}</h3>
+            <p class="sum">{st.summary}</p>
+            <p class="today" aria-live="polite">{st.days[0].today}</p>
+            <div class="bs-box"><h4>You send</h4><ul>{st.send.map((t) => <li>{t}</li>)}</ul></div>
+            <div class="bs-box gets"><h4>You get</h4><ul>{st.get.map((t) => <li>{t}</li>)}</ul></div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<script define:vars={{ stages: buildStages.map((st) => st.days) }}>
+  window.__bsStages = stages;
+</script>
+<script>
+  import '../scripts/stages.js';
+</script>
