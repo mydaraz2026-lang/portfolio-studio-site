@@ -42,9 +42,9 @@ Visitors with reduced motion turned on, or without WebGL, get a static timeline 
 
 ### Media files (`public/`)
 
-- `samples/*.mp4|jpg` — client site recordings (cropped, 2× speed) and posters
+- `samples/*.mp4|jpg` — client site scrolls (stitched into full pages from the screen recordings, replayed at 16:10) and posters
 - `stages/audit.*`, `stages/monitor.*`, `stages/phone.*` — Day 0 and Days 3–5 animations
 - `stages/guest-profile.*` — guest profile reading-view scroll and cover
 - `logo/ps-logo-emblem.png` — transparent logo used at Get started
 
-Videos load only when a visitor approaches their stop, start from the beginning on arrival, and pause when the visitor moves on. To swap a client recording, replace the matching `samples/*.mp4` (946 × 350 crop of the page area works with the current screens) and its poster `.jpg`.
+Videos load only when a visitor approaches their stop, start from the beginning on arrival, and pause when the visitor moves on. To swap a client recording, replace the matching `samples/*.mp4` (946 × 592, 16:10) and its poster `.jpg`.

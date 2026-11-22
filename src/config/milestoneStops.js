@@ -65,14 +65,14 @@ export const SITES = [
   },
 ];
 
-/** Recordings are cropped to the page area: 946 × 350. */
-export const SCREEN_ASPECT = 946 / 350;
+/** Recordings are full-page scrolls rendered at 946 × 592 (16:10). */
+export const SCREEN_ASPECT = 946 / 592;
 
 /** Showcase screens in the Samples cluster's local space (site index → screen). */
 export const SHOWCASE_LAYOUT = [
-  { site: 2, x: -3.3, y: 2.1, z: 0.9, rot: 0.38, width: 2.8 },
-  { site: 1, x: 0, y: 2.7, z: -0.2, rot: 0, width: 3.6 },
-  { site: 0, x: 3.3, y: 2.1, z: 0.9, rot: -0.38, width: 2.8 },
+  { site: 2, x: -3.5, y: 2.3, z: 0.9, rot: 0.38, width: 2.8 },
+  { site: 1, x: 0, y: 2.9, z: -0.2, rot: 0, width: 3.6 },
+  { site: 0, x: 3.5, y: 2.3, z: 0.9, rot: -0.38, width: 2.8 },
 ];
 
 const BASE_STOPS = [
@@ -308,7 +308,7 @@ function buildDiveStops(samples) {
     const l = SHOWCASE_LAYOUT[screen];
     const [cx, cz] = rotate(l.x, l.z, yaw);
     const [nx, nz] = rotate(Math.sin(l.rot), Math.cos(l.rot), yaw);
-    const distance = l.width / (0.68 * WIDE_VIEW); // screen fills ~68% of a wide viewport
+    const distance = l.width / (0.62 * WIDE_VIEW); // screen fills ~62% of a wide viewport
     return {
       id: `sample-${i + 1}`,
       navLabel: site.name,
@@ -325,8 +325,8 @@ function buildDiveStops(samples) {
       position: [samples.position[0] + cx, 0, samples.position[2] + cz],
       cameraOffset: [nx * distance, l.y, nz * distance],
       focusHeight: l.y,
-      framingShift: { wide: 0.12 * WIDE_VIEW * distance, narrow: 0.45 * l.width },
-      narrowDistance: 1.53,
+      framingShift: { wide: 0.13 * WIDE_VIEW * distance, narrow: 0.42 * l.width },
+      narrowDistance: 1.72,
       panelSide: 'left',
     };
   });
