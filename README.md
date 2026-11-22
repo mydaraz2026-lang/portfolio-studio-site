@@ -1,34 +1,50 @@
-# Portfolio Studio website
+# Portfolio Studio — landing page
 
-Static Astro site for Portfolio Studio: executive portfolio websites, live in 7 days.
-This repository is the Astro project. It replaces the earlier static landing page (still available in git history).
+The live site at **portfoliostudiocv.netlify.app**: a scroll-driven 3D camera journey. Scrolling moves the camera along a curved path (the *camera spline*) through 13 *milestone stops*. Each stop pairs a 3D scene with a readable HTML card (the *overlay panel*).
 
-## Run it
+Built with React 19, React Three Fiber / Three.js, Tailwind CSS v4 and Vite. Netlify builds it automatically from `main`: `npm run build` → `dist/`, Node 22 (see `netlify.toml`).
+
+## Run it locally
 
 ```bash
 npm install
-npm run dev      # http://localhost:4321
-npm run build    # writes the site to dist/
-npm run preview  # serves dist/ locally
+npm run dev       # http://localhost:5173
+npm run build     # production build in dist/
+npm run preview   # serve the production build
 ```
 
-## Where things are
+## The journey
 
-| Path | What it holds |
+| Stop | Scene |
 |---|---|
-| `src/data/site.ts` | All copy that changes: contact details, the three live sites, "What you get" items, pricing, FAQ and the 7-day build case study |
-| `src/components/` | One component per section: Nav, Hero, ParallaxStack, BuildScrubber, WhatYouGet, Pricing, Faq, FinalCta, Footer |
-| `src/scripts/parallax.js` | Scroll-driven parallax stack (no library) |
-| `src/scripts/scrubber.js` | 7-day build scrubber: slider, Play button and checklist |
-| `src/styles/global.css` | Design tokens and all styles (dark navy and gold) |
+| Start | Gateway the camera flies through |
+| Samples | Three client sites on floating screens |
+| MH Chowdhury · SM Atiqur Rahman · Tausif Karim | Camera dives into each screen; the site recording scrolls |
+| Day 0 | Sample CV: six results highlighted, then a before → after rewrite |
+| Days 1–2 | Rising metric bars |
+| Days 3–5 | Desktop + phone build (Day 3 hero, Day 4 impact, Day 5 contact + phone view) |
+| Days 6–7 | Launch beacon |
+| Pricing | Crystal — BDT 25,000 / $400 USD |
+| Media & Guest Profile | Mehdi's 7-page guest profile scrolling on a display |
+| FAQ | Speech bubbles |
+| Get started | Node network that resolves into the Portfolio Studio logo |
 
-## Deploying
+Visitors with reduced motion turned on, or without WebGL, get a static timeline with the same content. The header has a 3D/static toggle.
 
-`npm run build` produces plain static files in `dist/`. On Netlify the settings are read from `netlify.toml` (build command
-`npm run build`, publish directory `dist`) like the client sites, or on any static host.
+## Where to change things
 
-## Before going public
+- **Copy, prices, FAQ, contact, stop order, camera positions:** `src/config/milestoneStops.js`
+- **Colours:** `src/config/theme.js` (drives both the 3D scene and the Tailwind classes)
+- **Camera feel** (dwell at stops, follow speed, framing, lens): `src/config/cameraSpline.js`
+- **3D scenes:** `src/components/experience/monuments/`
+- **Cards, progress rail, header:** `src/components/overlay/`
+- **Static fallback:** `src/components/fallback/`
 
-- The 7-day build section uses a real client's CV facts (MH Chowdhury). Confirm he has agreed to be shown.
-- The parallax laptop and phone use sample content ("Your Name"); the three client cards are sketches, not screenshots.
-- Both effects switch off for visitors who ask their device for reduced motion.
+### Media files (`public/`)
+
+- `samples/*.mp4|jpg` — client site recordings (cropped, 2× speed) and posters
+- `stages/audit.*`, `stages/monitor.*`, `stages/phone.*` — Day 0 and Days 3–5 animations
+- `stages/guest-profile.*` — guest profile reading-view scroll and cover
+- `logo/ps-logo-emblem.png` — transparent logo used at Get started
+
+Videos load only when a visitor approaches their stop, start from the beginning on arrival, and pause when the visitor moves on. To swap a client recording, replace the matching `samples/*.mp4` (946 × 350 crop of the page area works with the current screens) and its poster `.jpg`.

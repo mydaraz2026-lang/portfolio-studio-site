@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/*
+ * Colours come from src/config/theme.js (applied to these variables at startup).
+ * The defaults below only cover the first paint before JavaScript runs.
+ */
+:root {
+  --bg: #060d1f;
+  --panel: #f4f6fb;
+  --ink: #0b1731;
+  --ink-muted: #4a5878;
+  --line: #d5ddee;
+  --on-dark: #f3f1ea;
+  --on-dark-muted: #a9b7d6;
+  --accent: #e8c273;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-panel: var(--panel);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-line: var(--line);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-muted: var(--on-dark-muted);
+  --color-accent: var(--accent);
+  --font-sans: "Hanken Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Bricolage Grotesque", "Hanken Grotesk", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  background: var(--bg);
+  scroll-padding-top: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--on-dark);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+h1,
+h2 {
+  text-wrap: balance;
+  font-family: var(--font-display);
+}
+
+/* Progress rail fill: driven by --journey-progress (0…1) written from the journey store. */
+.journey-rail-fill {
+  transform-origin: left center;
+  transform: scaleX(var(--journey-progress, 0));
+}
+
+@media (min-width: 768px) {
+  .journey-rail-fill {
+    transform-origin: center top;
+    transform: scaleY(var(--journey-progress, 0));
+  }
+}
+
+/* Scroll hint line on the intro overlay panel */
+@keyframes scroll-hint {
+  0% { transform: scaleY(0); transform-origin: top; }
+  50% { transform: scaleY(1); transform-origin: top; }
+  50.01% { transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+.scroll-hint-line {
+  animation: scroll-hint 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-hint-line {
+    animation: none;
+  }
+}

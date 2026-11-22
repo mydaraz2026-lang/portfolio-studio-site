@@ -1,14 +1,24 @@
 {
   "name": "portfolio-studio",
-  "type": "module",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Portfolio Studio landing page: a scroll-driven 3D camera journey (React + React Three Fiber + Tailwind)",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "astro": "^7.4.5"
-  }
+    "@react-three/fiber": "^9.8.2",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "three": "^0.187.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.5",
+    "@vitejs/plugin-react": "^6.3.0",
+    "tailwindcss": "^4.3.5",
+    "vite": "^8.3.8"
+  },
+  "private": true,
+  "type": "module"
 }
