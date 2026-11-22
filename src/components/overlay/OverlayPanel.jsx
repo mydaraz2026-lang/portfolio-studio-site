@@ -57,7 +57,9 @@ export default function OverlayPanel({ stop, active = true, mode = 'journey', co
 
       {stop.role && <p className="mt-1.5 text-[15px] font-medium text-ink-muted">{stop.role}</p>}
 
-      <p className="mt-3 text-[15px] leading-relaxed sm:mt-4 sm:text-base">{stop.summary}</p>
+      {!(compact && stop.kind === 'sample') && (
+        <p className="mt-3 text-[15px] leading-relaxed sm:mt-4 sm:text-base">{stop.summary}</p>
+      )}
 
       {stop.kind === 'stage' &&
         (compact ? (
@@ -71,7 +73,7 @@ export default function OverlayPanel({ stop, active = true, mode = 'journey', co
           <StageDetail stop={stop} />
         ))}
 
-      {stop.sites && <SiteList sites={stop.sites} />}
+      {stop.sites && !compact && <SiteList sites={stop.sites} />}
       {stop.kind === 'offer' && <Offer stop={stop} compact={compact} />}
 
       {stop.kind === 'sample' && (
@@ -85,7 +87,7 @@ export default function OverlayPanel({ stop, active = true, mode = 'journey', co
         </dl>
       )}
 
-      {stop.kind !== 'sample' && stop.metrics?.length > 0 && (
+      {stop.kind !== 'sample' && !(isIntro && compact) && stop.metrics?.length > 0 && (
         <dl className="mt-5 grid grid-cols-3 gap-3 border-t border-line pt-4 sm:mt-6 sm:gap-4 sm:pt-5">
           {stop.metrics.map((m) => (
             <div key={m.label} className="flex flex-col-reverse gap-1">
@@ -101,7 +103,9 @@ export default function OverlayPanel({ stop, active = true, mode = 'journey', co
       {isIntro && (
         <div className="mt-6 flex flex-wrap gap-3">
           <a href="#samples" className={btnGold}>See live samples</a>
-          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className={btnGhost}>Chat on WhatsApp</a>
+          <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className={btnGhost}>
+            {compact ? 'WhatsApp' : 'Chat on WhatsApp'}
+          </a>
         </div>
       )}
 

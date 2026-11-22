@@ -93,6 +93,9 @@ const BASE_STOPS = [
     position: [0, 0, 0],
     cameraOffset: [0, 2.8, 15],
     focusHeight: 3.4,
+    // phones: pull back and tilt down so the whole gateway sits above the card
+    framingShift: { narrow: 4.4 },
+    narrowDistance: 1.42,
     panelSide: 'left',
   },
   {
@@ -105,6 +108,7 @@ const BASE_STOPS = [
     summary: 'Real executive portfolios built by Portfolio Studio. Keep scrolling to step inside each one.',
     visibleRange: 4.6,
     nearRange: 4,
+    framingShift: { narrow: 3.1 }, // phones: lift the three screens clear of the card
     sites: SITES,
     monument: 'showcase',
     position: [16, 0, -20],
